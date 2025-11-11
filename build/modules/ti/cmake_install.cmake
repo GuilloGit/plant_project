@@ -1,4 +1,4 @@
-# Install script for directory: C:/Asignaturas/EMB_PLA_COM/zephyrproject/modules/hal/ti
+# Install script for directory: C:/projects/zephyrproject/modules/hal/ti
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,27 +34,27 @@ endif()
 
 # Set path to fallback-tool for dependency-resolution.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "C:/Asignaturas/EMB_PLA_COM/zephyr-sdk-0.17.2/arm-zephyr-eabi/bin/arm-zephyr-eabi-objdump.exe")
+  set(CMAKE_OBJDUMP "C:/Users/guillermo/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-objdump.exe")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/guillermo.mendoza/gprojects/plant_project/build/modules/ti/simplelink/cmake_install.cmake")
+  include("C:/projects/zephyr/plant_project/build/modules/ti/simplelink/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/guillermo.mendoza/gprojects/plant_project/build/modules/ti/simplelink_lpf3/cmake_install.cmake")
+  include("C:/projects/zephyr/plant_project/build/modules/ti/simplelink_lpf3/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/guillermo.mendoza/gprojects/plant_project/build/modules/ti/mspm0/cmake_install.cmake")
+  include("C:/projects/zephyr/plant_project/build/modules/ti/mspm0/cmake_install.cmake")
 endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 if(CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "C:/Users/guillermo.mendoza/gprojects/plant_project/build/modules/ti/install_local_manifest.txt"
+  file(WRITE "C:/projects/zephyr/plant_project/build/modules/ti/install_local_manifest.txt"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()

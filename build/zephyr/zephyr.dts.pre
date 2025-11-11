@@ -1,7 +1,7 @@
-# 0 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/misc/empty_file.c"
+# 0 "C:/projects/zephyrproject/zephyr/misc/empty_file.c"
 # 0 "<built-in>"
 # 0 "<command-line>"
-# 1 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/boards/st/nucleo_wl55jc/nucleo_wl55jc.dts" 1
+# 1 "C:/projects/zephyrproject/zephyr/boards/st/nucleo_wl55jc/nucleo_wl55jc.dts" 1
 
 
 
@@ -9,40 +9,42 @@
 
 
 /dts-v1/;
-# 1 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/dts/arm/st/wl/stm32wl55Xc.dtsi" 1 3 4
+# 1 "C:/projects/zephyrproject/zephyr/dts/arm/st/wl/stm32wl55Xc.dtsi" 1 3 4
 
 
 
 
 
-# 1 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/dts/common/mem.h" 1 3 4
-# 7 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/dts/arm/st/wl/stm32wl55Xc.dtsi" 2 3 4
-# 1 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/dts/arm/st/wl/stm32wl55.dtsi" 1 3 4
-
-
-
-
-
-
-# 1 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/dts/arm/st/wl/stm32wl.dtsi" 1 3 4
+# 1 "C:/projects/zephyrproject/zephyr/dts/common/mem.h" 1 3 4
+# 7 "C:/projects/zephyrproject/zephyr/dts/arm/st/wl/stm32wl55Xc.dtsi" 2 3 4
+# 1 "C:/projects/zephyrproject/zephyr/dts/arm/st/wl/stm32wl55.dtsi" 1 3 4
 
 
 
 
 
 
-# 1 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/dts/arm/armv7-m.dtsi" 1 3 4
+# 1 "C:/projects/zephyrproject/zephyr/dts/arm/st/wl/stm32wl.dtsi" 1 3 4
 
 
-# 1 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/dts/common/skeleton.dtsi" 1 3 4
-# 9 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/dts/common/skeleton.dtsi" 3 4
+
+
+
+
+# 1 "C:/projects/zephyrproject/zephyr/dts/arm/armv7-m.dtsi" 1 3 4
+
+
+# 1 "C:/projects/zephyrproject/zephyr/dts/common/skeleton.dtsi" 1 3 4
+# 9 "C:/projects/zephyrproject/zephyr/dts/common/skeleton.dtsi" 3 4
 / {
  #address-cells = <1>;
  #size-cells = <1>;
- chosen { };
- aliases { };
+
+ chosen {};
+
+ aliases {};
 };
-# 4 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/dts/arm/armv7-m.dtsi" 2 3 4
+# 4 "C:/projects/zephyrproject/zephyr/dts/arm/armv7-m.dtsi" 2 3 4
 
 / {
  soc {
@@ -66,69 +68,69 @@
   };
  };
 };
-# 8 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/dts/arm/st/wl/stm32wl.dtsi" 2 3 4
-# 1 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/include/zephyr/dt-bindings/clock/stm32wl_clock.h" 1 3 4
-# 9 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/include/zephyr/dt-bindings/clock/stm32wl_clock.h" 3 4
-# 1 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/include/zephyr/dt-bindings/clock/stm32_common_clocks.h" 1 3 4
-# 10 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/include/zephyr/dt-bindings/clock/stm32wl_clock.h" 2 3 4
-# 9 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/dts/arm/st/wl/stm32wl.dtsi" 2 3 4
-# 1 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/include/zephyr/dt-bindings/gpio/gpio.h" 1 3 4
-# 10 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/dts/arm/st/wl/stm32wl.dtsi" 2 3 4
-# 1 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/include/zephyr/dt-bindings/i2c/i2c.h" 1 3 4
-# 11 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/dts/arm/st/wl/stm32wl.dtsi" 2 3 4
-# 1 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/include/zephyr/dt-bindings/lora/sx126x.h" 1 3 4
-# 12 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/dts/arm/st/wl/stm32wl.dtsi" 2 3 4
-# 1 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/include/zephyr/dt-bindings/pwm/pwm.h" 1 3 4
-# 13 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/dts/arm/st/wl/stm32wl.dtsi" 2 3 4
-# 1 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/include/zephyr/dt-bindings/adc/adc.h" 1 3 4
-# 9 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/include/zephyr/dt-bindings/adc/adc.h" 3 4
-# 1 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/include/zephyr/dt-bindings/dt-util.h" 1 3 4
-# 19 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/include/zephyr/dt-bindings/dt-util.h" 3 4
-# 1 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/include/zephyr/sys/util_macro.h" 1 3 4
-# 34 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/include/zephyr/sys/util_macro.h" 3 4
-# 1 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/include/zephyr/sys/util_internal.h" 1 3 4
-# 18 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/include/zephyr/sys/util_internal.h" 3 4
-# 1 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/include/zephyr/sys/util_loops.h" 1 3 4
-# 1083 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/include/zephyr/sys/util_loops.h" 3 4
-# 1 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/include/zephyr/sys/util_listify.h" 1 3 4
-# 1084 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/include/zephyr/sys/util_loops.h" 2 3 4
-# 19 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/include/zephyr/sys/util_internal.h" 2 3 4
-# 162 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/include/zephyr/sys/util_internal.h" 3 4
-# 1 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/include/zephyr/sys/util_internal_is_eq.h" 1 3 4
-# 163 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/include/zephyr/sys/util_internal.h" 2 3 4
-# 193 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/include/zephyr/sys/util_internal.h" 3 4
-# 1 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/include/zephyr/sys/util_internal_util_inc.h" 1 3 4
-# 194 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/include/zephyr/sys/util_internal.h" 2 3 4
+# 8 "C:/projects/zephyrproject/zephyr/dts/arm/st/wl/stm32wl.dtsi" 2 3 4
+# 1 "C:/projects/zephyrproject/zephyr/include/zephyr/dt-bindings/clock/stm32wl_clock.h" 1 3 4
+# 9 "C:/projects/zephyrproject/zephyr/include/zephyr/dt-bindings/clock/stm32wl_clock.h" 3 4
+# 1 "C:/projects/zephyrproject/zephyr/include/zephyr/dt-bindings/clock/stm32_common_clocks.h" 1 3 4
+# 10 "C:/projects/zephyrproject/zephyr/include/zephyr/dt-bindings/clock/stm32wl_clock.h" 2 3 4
+# 9 "C:/projects/zephyrproject/zephyr/dts/arm/st/wl/stm32wl.dtsi" 2 3 4
+# 1 "C:/projects/zephyrproject/zephyr/include/zephyr/dt-bindings/gpio/gpio.h" 1 3 4
+# 10 "C:/projects/zephyrproject/zephyr/dts/arm/st/wl/stm32wl.dtsi" 2 3 4
+# 1 "C:/projects/zephyrproject/zephyr/include/zephyr/dt-bindings/i2c/i2c.h" 1 3 4
+# 11 "C:/projects/zephyrproject/zephyr/dts/arm/st/wl/stm32wl.dtsi" 2 3 4
+# 1 "C:/projects/zephyrproject/zephyr/include/zephyr/dt-bindings/lora/sx126x.h" 1 3 4
+# 12 "C:/projects/zephyrproject/zephyr/dts/arm/st/wl/stm32wl.dtsi" 2 3 4
+# 1 "C:/projects/zephyrproject/zephyr/include/zephyr/dt-bindings/pwm/pwm.h" 1 3 4
+# 13 "C:/projects/zephyrproject/zephyr/dts/arm/st/wl/stm32wl.dtsi" 2 3 4
+# 1 "C:/projects/zephyrproject/zephyr/include/zephyr/dt-bindings/adc/adc.h" 1 3 4
+# 9 "C:/projects/zephyrproject/zephyr/include/zephyr/dt-bindings/adc/adc.h" 3 4
+# 1 "C:/projects/zephyrproject/zephyr/include/zephyr/dt-bindings/dt-util.h" 1 3 4
+# 19 "C:/projects/zephyrproject/zephyr/include/zephyr/dt-bindings/dt-util.h" 3 4
+# 1 "C:/projects/zephyrproject/zephyr/include/zephyr/sys/util_macro.h" 1 3 4
+# 34 "C:/projects/zephyrproject/zephyr/include/zephyr/sys/util_macro.h" 3 4
+# 1 "C:/projects/zephyrproject/zephyr/include/zephyr/sys/util_internal.h" 1 3 4
+# 18 "C:/projects/zephyrproject/zephyr/include/zephyr/sys/util_internal.h" 3 4
+# 1 "C:/projects/zephyrproject/zephyr/include/zephyr/sys/util_loops.h" 1 3 4
+# 1083 "C:/projects/zephyrproject/zephyr/include/zephyr/sys/util_loops.h" 3 4
+# 1 "C:/projects/zephyrproject/zephyr/include/zephyr/sys/util_listify.h" 1 3 4
+# 1084 "C:/projects/zephyrproject/zephyr/include/zephyr/sys/util_loops.h" 2 3 4
+# 19 "C:/projects/zephyrproject/zephyr/include/zephyr/sys/util_internal.h" 2 3 4
+# 162 "C:/projects/zephyrproject/zephyr/include/zephyr/sys/util_internal.h" 3 4
+# 1 "C:/projects/zephyrproject/zephyr/include/zephyr/sys/util_internal_is_eq.h" 1 3 4
+# 163 "C:/projects/zephyrproject/zephyr/include/zephyr/sys/util_internal.h" 2 3 4
+# 193 "C:/projects/zephyrproject/zephyr/include/zephyr/sys/util_internal.h" 3 4
+# 1 "C:/projects/zephyrproject/zephyr/include/zephyr/sys/util_internal_util_inc.h" 1 3 4
+# 194 "C:/projects/zephyrproject/zephyr/include/zephyr/sys/util_internal.h" 2 3 4
 
 
-# 1 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/include/zephyr/sys/util_internal_util_dec.h" 1 3 4
-# 197 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/include/zephyr/sys/util_internal.h" 2 3 4
+# 1 "C:/projects/zephyrproject/zephyr/include/zephyr/sys/util_internal_util_dec.h" 1 3 4
+# 197 "C:/projects/zephyrproject/zephyr/include/zephyr/sys/util_internal.h" 2 3 4
 
 
-# 1 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/include/zephyr/sys/util_internal_util_x2.h" 1 3 4
-# 200 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/include/zephyr/sys/util_internal.h" 2 3 4
-# 35 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/include/zephyr/sys/util_macro.h" 2 3 4
-# 20 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/include/zephyr/dt-bindings/dt-util.h" 2 3 4
-# 10 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/include/zephyr/dt-bindings/adc/adc.h" 2 3 4
-# 14 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/dts/arm/st/wl/stm32wl.dtsi" 2 3 4
-# 1 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/include/zephyr/dt-bindings/pwm/stm32_pwm.h" 1 3 4
-# 15 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/dts/arm/st/wl/stm32wl.dtsi" 2 3 4
-# 1 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/include/zephyr/dt-bindings/dma/stm32_dma.h" 1 3 4
-# 16 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/dts/arm/st/wl/stm32wl.dtsi" 2 3 4
-# 1 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/include/zephyr/dt-bindings/adc/stm32l4_adc.h" 1 3 4
-# 9 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/include/zephyr/dt-bindings/adc/stm32l4_adc.h" 3 4
-# 1 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/include/zephyr/dt-bindings/adc/stm32_adc.h" 1 3 4
-# 10 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/include/zephyr/dt-bindings/adc/stm32l4_adc.h" 2 3 4
-# 17 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/dts/arm/st/wl/stm32wl.dtsi" 2 3 4
-# 1 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/include/zephyr/dt-bindings/reset/stm32wb_l_reset.h" 1 3 4
-# 10 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/include/zephyr/dt-bindings/reset/stm32wb_l_reset.h" 3 4
-# 1 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/include/zephyr/dt-bindings/reset/stm32-common.h" 1 3 4
-# 11 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/include/zephyr/dt-bindings/reset/stm32wb_l_reset.h" 2 3 4
-# 18 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/dts/arm/st/wl/stm32wl.dtsi" 2 3 4
-# 1 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/include/zephyr/dt-bindings/power/stm32_pwr.h" 1 3 4
-# 19 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/dts/arm/st/wl/stm32wl.dtsi" 2 3 4
-# 1 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/dts/common/freq.h" 1 3 4
-# 20 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/dts/arm/st/wl/stm32wl.dtsi" 2 3 4
+# 1 "C:/projects/zephyrproject/zephyr/include/zephyr/sys/util_internal_util_x2.h" 1 3 4
+# 200 "C:/projects/zephyrproject/zephyr/include/zephyr/sys/util_internal.h" 2 3 4
+# 35 "C:/projects/zephyrproject/zephyr/include/zephyr/sys/util_macro.h" 2 3 4
+# 20 "C:/projects/zephyrproject/zephyr/include/zephyr/dt-bindings/dt-util.h" 2 3 4
+# 10 "C:/projects/zephyrproject/zephyr/include/zephyr/dt-bindings/adc/adc.h" 2 3 4
+# 14 "C:/projects/zephyrproject/zephyr/dts/arm/st/wl/stm32wl.dtsi" 2 3 4
+# 1 "C:/projects/zephyrproject/zephyr/include/zephyr/dt-bindings/pwm/stm32_pwm.h" 1 3 4
+# 15 "C:/projects/zephyrproject/zephyr/dts/arm/st/wl/stm32wl.dtsi" 2 3 4
+# 1 "C:/projects/zephyrproject/zephyr/include/zephyr/dt-bindings/dma/stm32_dma.h" 1 3 4
+# 16 "C:/projects/zephyrproject/zephyr/dts/arm/st/wl/stm32wl.dtsi" 2 3 4
+# 1 "C:/projects/zephyrproject/zephyr/include/zephyr/dt-bindings/adc/stm32l4_adc.h" 1 3 4
+# 9 "C:/projects/zephyrproject/zephyr/include/zephyr/dt-bindings/adc/stm32l4_adc.h" 3 4
+# 1 "C:/projects/zephyrproject/zephyr/include/zephyr/dt-bindings/adc/stm32_adc.h" 1 3 4
+# 10 "C:/projects/zephyrproject/zephyr/include/zephyr/dt-bindings/adc/stm32l4_adc.h" 2 3 4
+# 17 "C:/projects/zephyrproject/zephyr/dts/arm/st/wl/stm32wl.dtsi" 2 3 4
+# 1 "C:/projects/zephyrproject/zephyr/include/zephyr/dt-bindings/reset/stm32wb_l_reset.h" 1 3 4
+# 10 "C:/projects/zephyrproject/zephyr/include/zephyr/dt-bindings/reset/stm32wb_l_reset.h" 3 4
+# 1 "C:/projects/zephyrproject/zephyr/include/zephyr/dt-bindings/reset/stm32-common.h" 1 3 4
+# 11 "C:/projects/zephyrproject/zephyr/include/zephyr/dt-bindings/reset/stm32wb_l_reset.h" 2 3 4
+# 18 "C:/projects/zephyrproject/zephyr/dts/arm/st/wl/stm32wl.dtsi" 2 3 4
+# 1 "C:/projects/zephyrproject/zephyr/include/zephyr/dt-bindings/power/stm32_pwr.h" 1 3 4
+# 19 "C:/projects/zephyrproject/zephyr/dts/arm/st/wl/stm32wl.dtsi" 2 3 4
+# 1 "C:/projects/zephyrproject/zephyr/dts/common/freq.h" 1 3 4
+# 20 "C:/projects/zephyrproject/zephyr/dts/arm/st/wl/stm32wl.dtsi" 2 3 4
 
 / {
  chosen {
@@ -154,12 +156,14 @@
     substate-id = <1>;
     min-residency-us = <100>;
    };
+
    stop1: state1 {
     compatible = "zephyr,power-state";
     power-state-name = "suspend-to-idle";
     substate-id = <2>;
     min-residency-us = <500>;
    };
+
    stop2: state2 {
     compatible = "zephyr,power-state";
     power-state-name = "suspend-to-idle";
@@ -170,7 +174,8 @@
  };
 
  sram0: memory@20000000 {
-  compatible = "mmio-sram";
+  compatible = "zephyr,memory-region", "mmio-sram";
+  zephyr,memory-region = "SRAM0";
  };
 
  clocks {
@@ -282,7 +287,7 @@
     gpio-controller;
     #gpio-cells = <2>;
     reg = <0x48000000 0x400>;
-    clocks = <&rcc (0x04c) (1 << 0U)>;
+    clocks = <&rcc (0x04c) (1 << 0)>;
    };
 
    gpiob: gpio@48000400 {
@@ -290,7 +295,7 @@
     gpio-controller;
     #gpio-cells = <2>;
     reg = <0x48000400 0x400>;
-    clocks = <&rcc (0x04c) (1 << 1U)>;
+    clocks = <&rcc (0x04c) (1 << 1)>;
    };
 
    gpioc: gpio@48000800 {
@@ -298,7 +303,7 @@
     gpio-controller;
     #gpio-cells = <2>;
     reg = <0x48000800 0x400>;
-    clocks = <&rcc (0x04c) (1 << 2U)>;
+    clocks = <&rcc (0x04c) (1 << 2)>;
    };
 
    gpioh: gpio@48001c00 {
@@ -306,13 +311,13 @@
     gpio-controller;
     #gpio-cells = <2>;
     reg = <0x48001c00 0x400>;
-    clocks = <&rcc (0x04c) (1 << 7U)>;
+    clocks = <&rcc (0x04c) (1 << 7)>;
    };
   };
 
   lptim1: timers@40007c00 {
    compatible = "st,stm32-lptim";
-   clocks = <&rcc (0x058) (1 << 31U)>;
+   clocks = <&rcc (0x058) (1 << 31)>;
    #address-cells = <1>;
    #size-cells = <0>;
    reg = <0x40007c00 0x400>;
@@ -325,7 +330,7 @@
    compatible = "st,stm32-rtc";
    reg = <0x40002800 0x400>;
    interrupts = <42 0>;
-   clocks = <&rcc (0x058) (1 << 10U)>;
+   clocks = <&rcc (0x058) (1 << 10)>;
    prescaler = <32768>;
    alarms-count = <2>;
    alrm-exti-line = <17>;
@@ -353,7 +358,7 @@
   wwdg: watchdog@40002c00 {
    compatible = "st,stm32-window-watchdog";
    reg = <0x40002C00 0x400>;
-   clocks = <&rcc (0x058) (1 << 11U)>;
+   clocks = <&rcc (0x058) (1 << 11)>;
    interrupts = <0 7>;
    status = "disabled";
   };
@@ -361,8 +366,8 @@
   usart1: serial@40013800 {
    compatible = "st,stm32-usart", "st,stm32-uart";
    reg = <0x40013800 0x400>;
-   clocks = <&rcc (0x060) (1 << 14U)>;
-   resets = <&rctl (((0x40) << 5U) | (14U))>;
+   clocks = <&rcc (0x060) (1 << 14)>;
+   resets = <&rctl (((0x40) << 5U) | (14))>;
    interrupts = <36 0>;
    status = "disabled";
   };
@@ -370,8 +375,8 @@
   usart2: serial@40004400 {
    compatible = "st,stm32-usart", "st,stm32-uart";
    reg = <0x40004400 0x400>;
-   clocks = <&rcc (0x058) (1 << 17U)>;
-   resets = <&rctl (((0x38) << 5U) | (17U))>;
+   clocks = <&rcc (0x058) (1 << 17)>;
+   resets = <&rctl (((0x38) << 5U) | (17))>;
    interrupts = <37 0>;
    status = "disabled";
   };
@@ -379,8 +384,8 @@
   lpuart1: serial@40008000 {
    compatible = "st,stm32-lpuart", "st,stm32-uart";
    reg = <0x40008000 0x400>;
-   clocks = <&rcc (0x05c) (1 << 0U)>;
-   resets = <&rctl (((0x3C) << 5U) | (0U))>;
+   clocks = <&rcc (0x05c) (1 << 0)>;
+   resets = <&rctl (((0x3C) << 5U) | (0))>;
    interrupts = <38 0>;
    wakeup-line = <28>;
    status = "disabled";
@@ -392,7 +397,7 @@
    #address-cells = <1>;
    #size-cells = <0>;
    reg = <0x40005400 0x400>;
-   clocks = <&rcc (0x058) (1 << 21U)>;
+   clocks = <&rcc (0x058) (1 << 21)>;
    interrupts = <30 0>, <31 0>;
    interrupt-names = "event", "error";
    status = "disabled";
@@ -404,7 +409,7 @@
    #address-cells = <1>;
    #size-cells = <0>;
    reg = <0x40005800 0x400>;
-   clocks = <&rcc (0x058) (1 << 22U)>;
+   clocks = <&rcc (0x058) (1 << 22)>;
    interrupts = <32 0>, <33 0>;
    interrupt-names = "event", "error";
    status = "disabled";
@@ -416,7 +421,7 @@
    #address-cells = <1>;
    #size-cells = <0>;
    reg = <0x40005c00 0x400>;
-   clocks = <&rcc (0x058) (1 << 23U)>;
+   clocks = <&rcc (0x058) (1 << 23)>;
    interrupts = <48 0>, <49 0>;
    interrupt-names = "event", "error";
    status = "disabled";
@@ -428,7 +433,7 @@
    #size-cells = <0>;
    reg = <0x40013000 0x400>;
    interrupts = <34 5>;
-   clocks = <&rcc (0x060) (1 << 12U)>;
+   clocks = <&rcc (0x060) (1 << 12)>;
    status = "disabled";
   };
 
@@ -438,7 +443,7 @@
    #size-cells = <0>;
    reg = <0x40003800 0x400>;
    interrupts = <35 5>;
-   clocks = <&rcc (0x058) (1 << 14U)>;
+   clocks = <&rcc (0x058) (1 << 14)>;
    status = "disabled";
   };
 
@@ -448,7 +453,7 @@
    #size-cells = <0>;
    reg = <0x58010000 0x400>;
    interrupts = <44 5>;
-   clocks = <&rcc (0x064) (1 << 0U)>;
+   clocks = <&rcc (0x064) (1 << 0)>;
    status = "disabled";
    use-subghzspi-nss;
 
@@ -464,9 +469,8 @@
   adc1: adc@40012400 {
    compatible = "st,stm32-adc";
    reg = <0x40012400 0x400>;
-   clocks = <&rcc (0x060) (1 << 9U)>;
+   clocks = <&rcc (0x060) (1 << 9)>;
    interrupts = <18 0>;
-   status = "disabled";
    #io-channel-cells = <1>;
    resolutions = <((((0x0C) & ((1UL << (8)) - 1UL)) << 0U) | (((3) & ((1UL << (5)) - 1UL)) << 8U) | (((((1UL << (2)) - 1UL)) & ((1UL << (3)) - 1UL)) << 13U) | (((0x00) & ((1UL << (3)) - 1UL)) << 16U) | (((12) & ((1UL << (13)) - 1UL)) << 19U))
            ((((0x0C) & ((1UL << (8)) - 1UL)) << 0U) | (((3) & ((1UL << (5)) - 1UL)) << 8U) | (((((1UL << (2)) - 1UL)) & ((1UL << (3)) - 1UL)) << 13U) | (((0x01) & ((1UL << (3)) - 1UL)) << 16U) | (((10) & ((1UL << (13)) - 1UL)) << 19U))
@@ -474,14 +478,16 @@
            ((((0x0C) & ((1UL << (8)) - 1UL)) << 0U) | (((3) & ((1UL << (5)) - 1UL)) << 8U) | (((((1UL << (2)) - 1UL)) & ((1UL << (3)) - 1UL)) << 13U) | (((0x03) & ((1UL << (3)) - 1UL)) << 16U) | (((6) & ((1UL << (13)) - 1UL)) << 19U))>;
    sampling-times = <2 4 8 13 20 40 80 161>;
    num-sampling-time-common-channels = <2>;
-   st,adc-sequencer = "NOT_FULLY_CONFIGURABLE";
-   st,adc-oversampler = "OVERSAMPLER_MINIMAL";
+   st,adc-sequencer = "fixed";
+   st,adc-oversampler = "minimal";
+   st,adc-internal-regulator = "startup-sw-delay";
+   status = "disabled";
   };
 
   dac1: dac@40007400 {
    compatible = "st,stm32-dac";
    reg = <0x40007400 0x400>;
-   clocks = <&rcc (0x058) (1 << 29U)>;
+   clocks = <&rcc (0x058) (1 << 29)>;
    status = "disabled";
    #io-channel-cells = <1>;
   };
@@ -491,7 +497,7 @@
    reg = <0x40012c00 0x400>;
    clocks = <&rcc (0x060) (1 << 11)>,
      <&rcc (((((0x003 + 1) + 1) + 1) + 1) + 1) 0xFF>;
-   resets = <&rctl (((0x40) << 5U) | (11U))>;
+   resets = <&rctl (((0x40) << 5U) | (11))>;
    interrupts = <23 0>, <24 0>, <25 0>, <26 0>;
    interrupt-names = "brk", "up", "trgcom", "cc";
    st,prescaler = <0>;
@@ -509,7 +515,7 @@
    reg = <0x40000000 0x400>;
    clocks = <&rcc (0x058) (1 << 0)>,
      <&rcc ((((0x003 + 1) + 1) + 1) + 1) 0xFF>;
-   resets = <&rctl (((0x38) << 5U) | (0U))>;
+   resets = <&rctl (((0x38) << 5U) | (0))>;
    interrupts = <27 0>;
    interrupt-names = "global";
    st,prescaler = <0>;
@@ -532,7 +538,7 @@
    reg = <0x40014400 0x400>;
    clocks = <&rcc (0x060) (1 << 17)>,
      <&rcc (((((0x003 + 1) + 1) + 1) + 1) + 1) 0xFF>;
-   resets = <&rctl (((0x40) << 5U) | (17U))>;
+   resets = <&rctl (((0x40) << 5U) | (17))>;
    interrupts = <28 0>;
    interrupt-names = "global";
    st,prescaler = <0>;
@@ -555,7 +561,7 @@
    reg = <0x40014800 0x400>;
    clocks = <&rcc (0x060) (1 << 18)>,
      <&rcc (((((0x003 + 1) + 1) + 1) + 1) + 1) 0xFF>;
-   resets = <&rctl (((0x40) << 5U) | (18U))>;
+   resets = <&rctl (((0x40) << 5U) | (18))>;
    interrupts = <29 0>;
    interrupt-names = "global";
    st,prescaler = <0>;
@@ -576,8 +582,8 @@
   aes: aes@58001800 {
    compatible = "st,stm32-aes";
    reg = <0x58001800 0x400>;
-   clocks = <&rcc (0x050) (1 << 17U)>;
-   resets = <&rctl (((0x30) << 5U) | (16U))>;
+   clocks = <&rcc (0x050) (1 << 17)>;
+   resets = <&rctl (((0x30) << 5U) | (16))>;
    interrupts = <51 0>;
    status = "disabled";
   };
@@ -586,7 +592,7 @@
    compatible = "st,stm32-rng";
    reg = <0x58001000 0x400>;
    interrupts = <52 0>;
-   clocks = <&rcc (0x050) (1 << 18U)>;
+   clocks = <&rcc (0x050) (1 << 18)>;
    health-test-magic = <0x17590abc>;
    health-test-config = <0xaa74>;
    status = "disabled";
@@ -597,7 +603,7 @@
    #dma-cells = <3>;
    reg = <0x40020000 0x400>;
    interrupts = <11 0 12 0 13 0 14 0 15 0 16 0 17 0>;
-   clocks = <&rcc (0x048) (1 << 0U)>;
+   clocks = <&rcc (0x048) (1 << 0)>;
    dma-requests = <7>;
    dma-offset = <0>;
    status = "disabled";
@@ -608,7 +614,7 @@
    #dma-cells = <3>;
    reg = <0x40020400 0x400>;
    interrupts = <54 0 55 0 56 0 57 0 58 0 59 0 60 0>;
-   clocks = <&rcc (0x048) (1 << 1U)>;
+   clocks = <&rcc (0x048) (1 << 1)>;
    dma-requests = <7>;
    dma-offset = <7>;
    status = "disabled";
@@ -619,10 +625,10 @@
    #dma-cells = <3>;
    reg = <0x40020800 0x400>;
    interrupts = <61 0>;
-   clocks = <&rcc (0x048) (1 << 2U)>;
+   clocks = <&rcc (0x048) (1 << 2)>;
    dma-channels = <14>;
    dma-generators = <4>;
-   dma-requests= <38>;
+   dma-requests = <38>;
    status = "disabled";
   };
 
@@ -709,14 +715,14 @@
 &nvic {
  arm,num-irq-priority-bits = <4>;
 };
-# 8 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/dts/arm/st/wl/stm32wl55.dtsi" 2 3 4
+# 8 "C:/projects/zephyrproject/zephyr/dts/arm/st/wl/stm32wl55.dtsi" 2 3 4
 
 / {
  soc {
   compatible = "st,stm32wl55", "st,stm32wl", "simple-bus";
  };
 };
-# 8 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/dts/arm/st/wl/stm32wl55Xc.dtsi" 2 3 4
+# 8 "C:/projects/zephyrproject/zephyr/dts/arm/st/wl/stm32wl55Xc.dtsi" 2 3 4
 
 / {
  sram0: memory@20000000 {
@@ -731,19 +737,19 @@
   };
  };
 };
-# 9 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/boards/st/nucleo_wl55jc/nucleo_wl55jc.dts" 2
-# 1 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/modules/hal/stm32/dts/st/wl/stm32wl55jcix-pinctrl.dtsi" 1 3 4
+# 9 "C:/projects/zephyrproject/zephyr/boards/st/nucleo_wl55jc/nucleo_wl55jc.dts" 2
+# 1 "C:/projects/zephyrproject/modules/hal/stm32/dts/st/wl/stm32wl55jcix-pinctrl.dtsi" 1 3 4
 
 
 
 
 
 
-# 1 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/include/zephyr/dt-bindings/pinctrl/stm32-pinctrl.h" 1 3 4
-# 10 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/include/zephyr/dt-bindings/pinctrl/stm32-pinctrl.h" 3 4
-# 1 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/include/zephyr/dt-bindings/pinctrl/stm32-pinctrl-common.h" 1 3 4
-# 11 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/include/zephyr/dt-bindings/pinctrl/stm32-pinctrl.h" 2 3 4
-# 8 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/modules/hal/stm32/dts/st/wl/stm32wl55jcix-pinctrl.dtsi" 2 3 4
+# 1 "C:/projects/zephyrproject/zephyr/include/zephyr/dt-bindings/pinctrl/stm32-pinctrl.h" 1 3 4
+# 10 "C:/projects/zephyrproject/zephyr/include/zephyr/dt-bindings/pinctrl/stm32-pinctrl.h" 3 4
+# 1 "C:/projects/zephyrproject/zephyr/include/zephyr/dt-bindings/pinctrl/stm32-pinctrl-common.h" 1 3 4
+# 11 "C:/projects/zephyrproject/zephyr/include/zephyr/dt-bindings/pinctrl/stm32-pinctrl.h" 2 3 4
+# 8 "C:/projects/zephyrproject/modules/hal/stm32/dts/st/wl/stm32wl55jcix-pinctrl.dtsi" 2 3 4
 
 / {
  soc {
@@ -1736,16 +1742,16 @@
   };
  };
 };
-# 10 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/boards/st/nucleo_wl55jc/nucleo_wl55jc.dts" 2
-# 1 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/boards/st/nucleo_wl55jc/arduino_r3_connector.dtsi" 1
+# 10 "C:/projects/zephyrproject/zephyr/boards/st/nucleo_wl55jc/nucleo_wl55jc.dts" 2
+# 1 "C:/projects/zephyrproject/zephyr/boards/st/nucleo_wl55jc/arduino_r3_connector.dtsi" 1
 
 
 
 
 
 
-# 1 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/include/zephyr/dt-bindings/gpio/arduino-header-r3.h" 1 3 4
-# 8 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/boards/st/nucleo_wl55jc/arduino_r3_connector.dtsi" 2
+# 1 "C:/projects/zephyrproject/zephyr/include/zephyr/dt-bindings/gpio/arduino-header-r3.h" 1 3 4
+# 8 "C:/projects/zephyrproject/zephyr/boards/st/nucleo_wl55jc/arduino_r3_connector.dtsi" 2
 
 / {
  arduino_header: connector {
@@ -1779,18 +1785,20 @@
 };
 
 arduino_serial: &usart1 {};
+
 arduino_i2c: &i2c2 {};
+
 arduino_spi: &spi1 {};
-# 11 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/boards/st/nucleo_wl55jc/nucleo_wl55jc.dts" 2
-# 1 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/boards/st/nucleo_wl55jc/st_morpho_connector.dtsi" 1
+# 11 "C:/projects/zephyrproject/zephyr/boards/st/nucleo_wl55jc/nucleo_wl55jc.dts" 2
+# 1 "C:/projects/zephyrproject/zephyr/boards/st/nucleo_wl55jc/st_morpho_connector.dtsi" 1
 
 
 
 
 
 
-# 1 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/include/zephyr/dt-bindings/gpio/st-morpho-header.h" 1 3 4
-# 8 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/boards/st/nucleo_wl55jc/st_morpho_connector.dtsi" 2
+# 1 "C:/projects/zephyrproject/zephyr/include/zephyr/dt-bindings/gpio/st-morpho-header.h" 1 3 4
+# 8 "C:/projects/zephyrproject/zephyr/boards/st/nucleo_wl55jc/st_morpho_connector.dtsi" 2
 
 / {
  st_morpho_header: st-morpho-header {
@@ -1811,7 +1819,6 @@ arduino_spi: &spi1 {};
       <33 0 &gpiob 4 0>,
       <35 0 &gpiob 14 0>,
       <37 0 &gpiob 13 0>,
-
       <72 0 &gpioa 0 0>,
       <73 0 &gpioc 4 0>,
       <74 0 &gpioa 12 0>,
@@ -1842,9 +1849,9 @@ arduino_spi: &spi1 {};
       <109 0 &gpioc 3 0>;
  };
 };
-# 12 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/boards/st/nucleo_wl55jc/nucleo_wl55jc.dts" 2
-# 1 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/include/zephyr/dt-bindings/input/input-event-codes.h" 1 3 4
-# 13 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/boards/st/nucleo_wl55jc/nucleo_wl55jc.dts" 2
+# 12 "C:/projects/zephyrproject/zephyr/boards/st/nucleo_wl55jc/nucleo_wl55jc.dts" 2
+# 1 "C:/projects/zephyrproject/zephyr/include/zephyr/dt-bindings/input/input-event-codes.h" 1 3 4
+# 13 "C:/projects/zephyrproject/zephyr/boards/st/nucleo_wl55jc/nucleo_wl55jc.dts" 2
 
 / {
  model = "STMicroelectronics STM32WL55JC-NUCLEO board";
@@ -1871,7 +1878,7 @@ arduino_spi: &spi1 {};
    label = "User LED2";
   };
 
-  green_led_3: led_2 {
+  red_led_3: led_2 {
    gpios = <&gpiob 11 (0 << 0)>;
    label = "User LED3";
   };
@@ -1970,7 +1977,6 @@ stm32_lp_tick_source: &lptim1 {
  status = "okay";
 };
 
-
 &dac1 {
  pinctrl-0 = <&dac_out1_pa10>;
  pinctrl-names = "default";
@@ -1986,7 +1992,6 @@ stm32_lp_tick_source: &lptim1 {
   pinctrl-names = "default";
  };
 };
-
 
 &adc1 {
  pinctrl-0 = <&adc_in5_pb1 &adc_in0_pb13>;
@@ -2083,14 +2088,78 @@ stm32_lp_tick_source: &lptim1 {
 
 
 / {
+ aliases {
 
+  adc-in = &adc1;
+  lightsensor = &light_in;
+  soilsensor = &moisture_in;
+
+
+  gps-uart = &usart1;
+  i2c-bus = &i2c1;
+
+
+  led-red = &led_red;
+  led-green = &led_green;
+  led-blue = &led_blue;
+
+
+
+
+
+ };
+
+    leds {
+        compatible = "gpio-leds";
+
+        led_red: led_red {
+            gpios = <&gpioc 2 (1 << 0)>;
+            label = "RGB_RED";
+        };
+
+        led_green: led_green {
+            gpios = <&gpioc 1 (1 << 0)>;
+            label = "RGB_GREEN";
+        };
+
+        led_blue: led_blue {
+            gpios = <&gpiob 12 (1 << 0)>;
+            label = "RGB_BLUE";
+        };
+    };
+
+
+
+ light_in: light_input {
+  compatible = "st,stm32-adc-channel";
+  io-channels = <&adc1 4>;
+ };
+
+ moisture_in: moisture_input {
+  compatible = "st,stm32-adc-channel";
+  io-channels = <&adc1 3>;
+ };
 };
+
 
 &usart1 {
-    status = "okay";
-    current-speed = <9600>;
-    pinctrl-0 = <&usart1_tx_pb6 &usart1_rx_pb7>;
-    pinctrl-names = "default";
+ status = "okay";
+
+ pinctrl-0 = <&usart1_tx_pb6 &usart1_rx_pb7>;
+ pinctrl-names = "default";
+
+
 };
+
+
+&adc1 {
+ status = "okay";
+
+ pinctrl-0 = <&adc_in4_pb2 &adc_in3_pb4>;
+ pinctrl-names = "default";
+};
+# 108 "././boards/nucleo_wl55jc.overlay"
+&gpioc { status = "okay"; };
+&gpiob { status = "okay"; };
 # 0 "<command-line>" 2
-# 1 "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/misc/empty_file.c"
+# 1 "C:/projects/zephyrproject/zephyr/misc/empty_file.c"

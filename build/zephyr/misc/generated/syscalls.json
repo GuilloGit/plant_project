@@ -169,6 +169,14 @@
     ],
     [
         [
+            "int adc_get_decoder",
+            "const struct device *dev,\n\t\t\t\tconst struct adc_decoder_api **api"
+        ],
+        "adc.h",
+        true
+    ],
+    [
+        [
             "int gpio_pin_interrupt_configure",
             "const struct device *port,\n\t\t\t\t\t   gpio_pin_t pin,\n\t\t\t\t\t   gpio_flags_t flags"
         ],
@@ -649,6 +657,14 @@
     ],
     [
         [
+            "void k_thread_absolute_deadline_set",
+            "k_tid_t thread, int deadline"
+        ],
+        "kernel.h",
+        true
+    ],
+    [
+        [
             "void k_reschedule",
             "void"
         ],
@@ -921,6 +937,22 @@
     ],
     [
         [
+            "uint32_t k_event_wait_safe",
+            "struct k_event *event, uint32_t events,\n\t\t\t\t     bool reset, k_timeout_t timeout"
+        ],
+        "kernel.h",
+        true
+    ],
+    [
+        [
+            "uint32_t k_event_wait_all_safe",
+            "struct k_event *event, uint32_t events,\n\t\t\t\t\t bool reset, k_timeout_t timeout"
+        ],
+        "kernel.h",
+        true
+    ],
+    [
+        [
             "int32_t k_stack_alloc_init",
             "struct k_stack *stack,\n\t\t\t\t   uint32_t num_entries"
         ],
@@ -1058,7 +1090,7 @@
     [
         [
             "int k_msgq_put_front",
-            "struct k_msgq *msgq, const void *data, k_timeout_t timeout"
+            "struct k_msgq *msgq, const void *data"
         ],
         "kernel.h",
         true
@@ -1123,62 +1155,6 @@
         [
             "void k_pipe_init",
             "struct k_pipe *pipe, uint8_t *buffer, size_t buffer_size"
-        ],
-        "kernel.h",
-        true
-    ],
-    [
-        [
-            "int k_pipe_alloc_init",
-            "struct k_pipe *pipe, size_t size"
-        ],
-        "kernel.h",
-        true
-    ],
-    [
-        [
-            "int k_pipe_put",
-            "struct k_pipe *pipe, const void *data,\n\t\t\t size_t bytes_to_write, size_t *bytes_written,\n\t\t\t size_t min_xfer, k_timeout_t timeout"
-        ],
-        "kernel.h",
-        true
-    ],
-    [
-        [
-            "int k_pipe_get",
-            "struct k_pipe *pipe, void *data,\n\t\t\t size_t bytes_to_read, size_t *bytes_read,\n\t\t\t size_t min_xfer, k_timeout_t timeout"
-        ],
-        "kernel.h",
-        true
-    ],
-    [
-        [
-            "size_t k_pipe_read_avail",
-            "struct k_pipe *pipe"
-        ],
-        "kernel.h",
-        true
-    ],
-    [
-        [
-            "size_t k_pipe_write_avail",
-            "struct k_pipe *pipe"
-        ],
-        "kernel.h",
-        true
-    ],
-    [
-        [
-            "void k_pipe_flush",
-            "struct k_pipe *pipe"
-        ],
-        "kernel.h",
-        true
-    ],
-    [
-        [
-            "void k_pipe_buffer_flush",
-            "struct k_pipe *pipe"
         ],
         "kernel.h",
         true
@@ -2017,6 +1993,30 @@
     ],
     [
         [
+            "int crc_begin",
+            "const struct device *dev, struct crc_ctx *ctx"
+        ],
+        "crc.h",
+        false
+    ],
+    [
+        [
+            "int crc_update",
+            "const struct device *dev, struct crc_ctx *ctx, const void *buffer,\n\t\t\t size_t bufsize"
+        ],
+        "crc.h",
+        false
+    ],
+    [
+        [
+            "int crc_finish",
+            "const struct device *dev, struct crc_ctx *ctx"
+        ],
+        "crc.h",
+        false
+    ],
+    [
+        [
             "int dac_channel_setup",
             "const struct device *dev,\n\t\t\t\tconst struct dac_channel_cfg *channel_cfg"
         ],
@@ -2029,62 +2029,6 @@
             "const struct device *dev, uint8_t channel,\n\t\t\t      uint32_t value"
         ],
         "dac.h",
-        false
-    ],
-    [
-        [
-            "int dma_start",
-            "const struct device *dev, uint32_t channel"
-        ],
-        "dma.h",
-        false
-    ],
-    [
-        [
-            "int dma_stop",
-            "const struct device *dev, uint32_t channel"
-        ],
-        "dma.h",
-        false
-    ],
-    [
-        [
-            "int dma_suspend",
-            "const struct device *dev, uint32_t channel"
-        ],
-        "dma.h",
-        false
-    ],
-    [
-        [
-            "int dma_resume",
-            "const struct device *dev, uint32_t channel"
-        ],
-        "dma.h",
-        false
-    ],
-    [
-        [
-            "int dma_request_channel",
-            "const struct device *dev,\n\t\t\t\t  void *filter_param"
-        ],
-        "dma.h",
-        false
-    ],
-    [
-        [
-            "void dma_release_channel",
-            "const struct device *dev,\n\t\t\t\t   uint32_t channel"
-        ],
-        "dma.h",
-        false
-    ],
-    [
-        [
-            "int dma_chan_filter",
-            "const struct device *dev,\n\t\t\t\t   int channel, void *filter_param"
-        ],
-        "dma.h",
         false
     ],
     [
@@ -2593,38 +2537,6 @@
     ],
     [
         [
-            "int hwspinlock_trylock",
-            "const struct device *dev, uint32_t id"
-        ],
-        "hwspinlock.h",
-        false
-    ],
-    [
-        [
-            "void hwspinlock_lock",
-            "const struct device *dev, uint32_t id"
-        ],
-        "hwspinlock.h",
-        false
-    ],
-    [
-        [
-            "void hwspinlock_unlock",
-            "const struct device *dev, uint32_t id"
-        ],
-        "hwspinlock.h",
-        false
-    ],
-    [
-        [
-            "uint32_t hwspinlock_get_max_id",
-            "const struct device *dev"
-        ],
-        "hwspinlock.h",
-        false
-    ],
-    [
-        [
             "int i2c_configure",
             "const struct device *dev, uint32_t dev_config"
         ],
@@ -2957,6 +2869,14 @@
             "const struct device *controller,\n\t\t\t\t const struct mspi_dev_id *dev_id,\n\t\t\t\t const uint32_t param_mask, void *cfg"
         ],
         "mspi.h",
+        false
+    ],
+    [
+        [
+            "int opamp_set_gain",
+            "const struct device *dev, enum opamp_gain gain"
+        ],
+        "opamp.h",
         false
     ],
     [
@@ -3298,7 +3218,7 @@
     [
         [
             "int sensor_reconfigure_read_iodev",
-            "struct rtio_iodev *iodev, const struct device *sensor,\n\t\t\t\t\t    const struct sensor_chan_spec *channels,\n\t\t\t\t\t    size_t num_channels"
+            "const struct rtio_iodev *iodev,\n\t\t\t\t\t    const struct device *sensor,\n\t\t\t\t\t    const struct sensor_chan_spec *channels,\n\t\t\t\t\t    size_t num_channels"
         ],
         "sensor.h",
         false
@@ -4157,6 +4077,14 @@
             "const struct device *dev,\n\t\t\t\t\t      const struct renesas_ra_ctsu_touch_cfg *cfg"
         ],
         "input_renesas_ra_ctsu.h",
+        false
+    ],
+    [
+        [
+            "int renesas_rx_ctsu_group_configure",
+            "const struct device *dev,\n\t\t\t\t\t      const struct renesas_rx_ctsu_touch_cfg *cfg"
+        ],
+        "input_renesas_rx_ctsu.h",
         false
     ],
     [

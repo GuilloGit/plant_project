@@ -1,2 +1,2 @@
 # Load Zephyr board defconfig descriptions.
-osource "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/boards/st/nucleo_wl55jc/Kconfig.defconfig"
+osource "C:/projects/zephyrproject/zephyr/boards/st/nucleo_wl55jc/Kconfig.defconfig"

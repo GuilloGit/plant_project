@@ -1,4 +1,4 @@
-# Install script for directory: C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/modules/hal_wch
+# Install script for directory: C:/projects/zephyrproject/zephyr/modules/hal_wch
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,12 +34,12 @@ endif()
 
 # Set path to fallback-tool for dependency-resolution.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "C:/Asignaturas/EMB_PLA_COM/zephyr-sdk-0.17.2/arm-zephyr-eabi/bin/arm-zephyr-eabi-objdump.exe")
+  set(CMAKE_OBJDUMP "C:/Users/guillermo/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-objdump.exe")
 endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 if(CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "C:/Users/guillermo.mendoza/gprojects/plant_project/build/modules/hal_wch/install_local_manifest.txt"
+  file(WRITE "C:/projects/zephyr/plant_project/build/modules/hal_wch/install_local_manifest.txt"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()

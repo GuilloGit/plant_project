@@ -1,61 +1,7 @@
-cmake:
-  application:
-    configuration-dir: 'C:/Users/guillermo.mendoza/gprojects/plant_project'
-    source-dir: 'C:/Users/guillermo.mendoza/gprojects/plant_project'
-  board:
-    name: 'nucleo_wl55jc'
-    path:
-     - 'C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/boards/st/nucleo_wl55jc'
-    qualifiers: 'stm32wl55xx'
-    revision: ''
-  devicetree:
-    bindings-dirs:
-     - 'C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/dts/bindings'
-    files:
-     - 'C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/boards/st/nucleo_wl55jc/nucleo_wl55jc.dts'
-     - './boards/nucleo_wl55jc.overlay'
-    include-dirs:
-     - 'C:/Asignaturas/EMB_PLA_COM/zephyrproject/modules/hal/ambiq/dts'
-     - 'C:/Asignaturas/EMB_PLA_COM/zephyrproject/modules/hal/atmel/include'
-     - 'C:/Asignaturas/EMB_PLA_COM/zephyrproject/modules/hal/bouffalolab/include'
-     - 'C:/Asignaturas/EMB_PLA_COM/zephyrproject/modules/hal/bouffalolab/include/zephyr'
-     - 'C:/Asignaturas/EMB_PLA_COM/zephyrproject/modules/hal/gigadevice/include'
-     - 'C:/Asignaturas/EMB_PLA_COM/zephyrproject/modules/hal/microchip/include'
-     - 'C:/Asignaturas/EMB_PLA_COM/zephyrproject/modules/hal/microchip/dts'
-     - 'C:/Asignaturas/EMB_PLA_COM/zephyrproject/modules/hal/nuvoton/dts'
-     - 'C:/Asignaturas/EMB_PLA_COM/zephyrproject/modules/hal/nxp/dts'
-     - 'C:/Asignaturas/EMB_PLA_COM/zephyrproject/modules/hal/stm32/dts'
-     - 'C:/Asignaturas/EMB_PLA_COM/zephyrproject/modules/hal/ti/dts'
-     - 'C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/include'
-     - 'C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/include/zephyr'
-     - 'C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/dts/common'
-     - 'C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/dts/vendor'
-     - 'C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/dts/rx'
-     - 'C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/dts/x86'
-     - 'C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/dts/xtensa'
-     - 'C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/dts/sparc'
-     - 'C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/dts/riscv'
-     - 'C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/dts/posix'
-     - 'C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/dts/arm64'
-     - 'C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/dts/arm'
-     - 'C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/dts/arc'
-     - 'C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/dts'
-    user-files:
-     - './boards/nucleo_wl55jc.overlay'
-  kconfig:
-    files:
-     - 'C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/boards/st/nucleo_wl55jc/nucleo_wl55jc_defconfig'
-     - 'C:/Users/guillermo.mendoza/gprojects/plant_project/./confs/prj_nucleo_wl55jc.conf'
-    user-files:
-     - './confs/prj_nucleo_wl55jc.conf'
-  toolchain:
-    name: 'zephyr'
-    path: 'C:/Asignaturas/EMB_PLA_COM/zephyr-sdk-0.17.2'
-  zephyr:
-    version: '4.2.99'
-    zephyr-base: 'C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr'
-version: '0.1.0'
 west:
-  command: 'C:\Asignaturas\EMB_PLA_COM\zephyrproject\.venv\Scripts\west build -p auto -b nucleo_wl55jc C:/Users/guillermo.mendoza/gprojects/plant_project -d C:/Users/guillermo.mendoza/gprojects/plant_project/build -DUSER_CACHE_DIR=C:/Users/guillermo.mendoza/gprojects/plant_project -DDTC_OVERLAY_FILE=./boards/nucleo_wl55jc.overlay -DCONF_FILE=./confs/prj_nucleo_wl55jc.conf -DUSE_CCACHE=0'
-  topdir: 'C:\Asignaturas\EMB_PLA_COM\zephyrproject'
-  version: '1.4.0'
+  command: C:\Users\guillermo\zephyrproject\.venv\Scripts\west build -p auto -b nucleo_wl55jc
+    C:\projects\zephyr\plant_project -d C:\projects\zephyr\plant_project/build -DUSER_CACHE_DIR=C:\projects\zephyr\plant_project/.zephyr-cache
+    -DDTC_OVERLAY_FILE=./boards/nucleo_wl55jc.overlay -DCONF_FILE=./confs/prj_nucleo_wl55jc.conf
+    -DUSE_CCACHE=0
+  topdir: C:\projects\zephyrproject
+  version: 1.5.0

@@ -1,1 +1,1 @@
-"mcuboot":"C:/Asignaturas/EMB_PLA_COM/zephyrproject/bootloader/mcuboot":"C:/Asignaturas/EMB_PLA_COM/zephyrproject/bootloader/mcuboot/boot/zephyr/sysbuild"
+"mcuboot":"C:/projects/zephyrproject/bootloader/mcuboot":"C:/projects/zephyrproject/bootloader/mcuboot/boot/zephyr/sysbuild"

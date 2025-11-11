@@ -39,6 +39,9 @@ case K_OBJ_RTIO_IODEV: ret = "rtio_iodev"; break;
 #ifdef CONFIG_RTIO
 case K_OBJ_RTIO_POOL: ret = "rtio_pool"; break;
 #endif
+#ifdef CONFIG_ADC_STREAM
+case K_OBJ_ADC_DECODER_API: ret = "adc_decoder_api"; break;
+#endif
 #ifdef CONFIG_SENSOR_ASYNC_API
 case K_OBJ_SENSOR_DECODER_API: ret = "sensor_decoder_api"; break;
 #endif
@@ -58,6 +61,7 @@ case K_OBJ_DRIVER_CLOCK_CONTROL: ret = "clock_control driver"; break;
 case K_OBJ_DRIVER_COMPARATOR: ret = "comparator driver"; break;
 case K_OBJ_DRIVER_COREDUMP: ret = "coredump driver"; break;
 case K_OBJ_DRIVER_COUNTER: ret = "counter driver"; break;
+case K_OBJ_DRIVER_CRC: ret = "crc driver"; break;
 case K_OBJ_DRIVER_DAC: ret = "dac driver"; break;
 case K_OBJ_DRIVER_DAI: ret = "dai driver"; break;
 case K_OBJ_DRIVER_DISPLAY: ret = "display driver"; break;
@@ -89,6 +93,7 @@ case K_OBJ_DRIVER_MDIO: ret = "mdio driver"; break;
 case K_OBJ_DRIVER_MIPI_DBI: ret = "mipi_dbi driver"; break;
 case K_OBJ_DRIVER_MIPI_DSI: ret = "mipi_dsi driver"; break;
 case K_OBJ_DRIVER_MSPI: ret = "mspi driver"; break;
+case K_OBJ_DRIVER_OPAMP: ret = "opamp driver"; break;
 case K_OBJ_DRIVER_PECI: ret = "peci driver"; break;
 case K_OBJ_DRIVER_PS2: ret = "ps2 driver"; break;
 case K_OBJ_DRIVER_PTP_CLOCK: ret = "ptp_clock driver"; break;

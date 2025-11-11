@@ -1,2 +1,5 @@
 .vscode/settings.json
 .vscode/tasks.json
+.zephyr-cache
+build/
+cmake_build/

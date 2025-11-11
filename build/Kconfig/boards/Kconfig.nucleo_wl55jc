@@ -1,2 +1,2 @@
 # Load board Kconfig descriptions.
-osource "C:/Asignaturas/EMB_PLA_COM/zephyrproject/zephyr/boards/st/nucleo_wl55jc/Kconfig.nucleo_wl55jc"
+osource "C:/projects/zephyrproject/zephyr/boards/st/nucleo_wl55jc/Kconfig.nucleo_wl55jc"
