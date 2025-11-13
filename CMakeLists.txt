@@ -10,6 +10,7 @@ target_sources(     app PRIVATE src/main.c
                      src/sensors/light_sensor.c
                      src/sensors/color_sensor.c
                      src/sensors/gps.c
-                     src/sensors/accelerometer.c )
+                     src/sensors/accelerometer.c 
+                     src/sensors/rgb_led.c)
 
 target_include_directories(app PRIVATE)
