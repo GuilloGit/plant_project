@@ -2095,7 +2095,37 @@ stm32_lp_tick_source: &lptim1 {
     aliases {
 
   adc-in = &adc1;
+
+  gpsuart = &usart1;
+  i2cbus = &i2c2;
+
+
+  led-red = &led_red;
+  led-green = &led_green;
+  led-blue = &led_blue;
      };
+
+
+    leds {
+        compatible = "gpio-leds";
+
+        led_red: led_red {
+            gpios = <&gpioc 2 (1 << 0)>;
+            label = "RGB_RED";
+        };
+
+        led_green: led_green {
+            gpios = <&gpioc 1 (1 << 0)>;
+            label = "RGB_GREEN";
+        };
+
+        led_blue: led_blue {
+            gpios = <&gpiob 12 (1 << 0)>;
+            label = "RGB_BLUE";
+        };
+    };
+
+
 };
 
 
@@ -2105,5 +2135,49 @@ stm32_lp_tick_source: &lptim1 {
  pinctrl-0 = <&adc_in4_pb2 &adc_in3_pb4>;
  pinctrl-names = "default";
 };
+
+&usart1 {
+ status = "okay";
+
+ pinctrl-0 = <&usart1_tx_pb6 &usart1_rx_pb7>;
+ pinctrl-names = "default";
+
+
+};
+
+
+&i2c2 {
+ status = "okay";
+
+ pinctrl-0 = <&i2c2_scl_pa12 &i2c2_sda_pa11>;
+ pinctrl-names = "default";
+ clock-frequency = <400000>;
+
+
+
+ mma8451:mma8451@1d {
+  label = "MMA8451";
+  reg = <0x1d>;
+  status = "okay";
+ };
+
+ tcs34725: tcs34725@29 {
+
+  label = "TCS34725";
+  reg = <0x29>;
+  status = "okay";
+ };
+
+ si7021: si7021@40 {
+  label = "SI7021";
+  compatible = "i2c-device";
+  reg = <0x40>;
+  status = "okay";
+ };
+
+};
+# 179 "././boards/nucleo_wl55jc.overlay"
+&gpioc { status = "okay"; };
+&gpiob { status = "okay"; };
 # 0 "<command-line>" 2
 # 1 "C:/projects/zephyrproject/zephyr/misc/empty_file.c"

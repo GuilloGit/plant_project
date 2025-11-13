@@ -8,7 +8,37 @@
     aliases {
 		/* ADC device + channels */
 		adc-in              = &adc1;
+		/* UART and I2C buses */
+		gpsuart   = &usart1;
+		i2cbus    = &i2c2;
+
+		/* LEDs */
+		led-red    = &led_red;
+		led-green  = &led_green;
+		led-blue   = &led_blue;
 	    };
+
+	    /* A simple leds node with three children */
+    leds {
+        compatible = "gpio-leds";
+
+        led_red: led_red {
+            gpios = <&gpioc 2 GPIO_ACTIVE_LOW>;   /* PC2 */
+            label = "RGB_RED";
+        };
+
+        led_green: led_green {
+            gpios = <&gpioc 1 GPIO_ACTIVE_LOW>;   /* PC1 */
+            label = "RGB_GREEN";
+        };
+
+        led_blue: led_blue {
+            gpios = <&gpiob 12 GPIO_ACTIVE_LOW>;  /* PB12 */
+            label = "RGB_BLUE";
+        };
+    };
+
+	
 };    
 
 
@@ -18,14 +48,54 @@
 	pinctrl-0 = <&adc_in4_pb2 &adc_in3_pb4>;
 	pinctrl-names = "default";
 };
+/* -------- UART: GPS on USART1 (PB6 TX, PB7 RX) -------- */
+&usart1 {
+	status = "okay";
+	/* Use the WL pinctrl labels for PB6/PB7 alt functions */
+	pinctrl-0 = <&usart1_tx_pb6 &usart1_rx_pb7>;
+	pinctrl-names = "default";
+	/* Optionally choose for console/stdio if you want:
+	   current-speed = <9600>; */
+};
+
+/* -------- I2C2: enable + attach three sensors (PA12=SCL, PA11=SDA) -------- */
+&i2c2 {
+	status = "okay";
+	/* Use the board pinctrl labels for PA12/PA11 if available */
+	pinctrl-0 = <&i2c2_scl_pa12 &i2c2_sda_pa11>;
+	pinctrl-names = "default";
+	clock-frequency = <I2C_BITRATE_FAST>;
+
+	/* Attach I2C devices (replace compatibles/registers with real sensors) */
+	//Accelerometer
+	mma8451:mma8451@1d {
+		label = "MMA8451"; // Podemos usar esta etiqueta en el código para obtener el dispositivo
+		reg = <0x1d>;
+		status = "okay";
+	};
+	//Color Sensor TCS34725
+	tcs34725: tcs34725@29 {
+		// compatible = "i2c-device";  Esta linea la omito si pongo el label
+		label = "TCS34725"; // Etiqueta para el sensor de color
+		reg = <0x29>;	// Direccion I2C del TCS34725
+		status = "okay";
+	};
+	// Sensor de temperatura y humedad Si7021
+	si7021: si7021@40 {
+		label = "SI7021"; 
+		compatible = "i2c-device"; //Dirección del sensor Si7021
+		reg = <0x40>;
+		status = "okay";
+	};
+	
+};
+
+
 
 
 // / {
 // 	aliases {
-// 		/* ADC device + channels */
-// 		adcin        = &adc1;
-// 		lightsensor   = &light_in;
-// 		soilsensor    = &moisture_in;
+// 		
 
 // 		/* UART and I2C buses */
 // 		gpsuart   = &usart1;
@@ -75,16 +145,6 @@
 // 	   current-speed = <9600>; */
 // };
 
-// /* -------- ADC: enable ADC1 + set analog pins -------- */
-// &adc1 {
-// 	status = "okay";
-// 	/* Put PB2 (IN4) and PB4 (IN3) into analog mode */
-// 	pinctrl-0 = <&adc_in4_pb2 &adc_in3_pb4>;
-// 	pinctrl-names = "default";
-// };
-
-// /* (see channel nodes defined inside / { ... } above) */
-
 // /* -------- I2C1: enable + attach three sensors -------- */
 // // &i2c1 {
 // // 	status = "okay";
@@ -114,7 +174,7 @@
 // // 	};
 // // };
 
-// /* -------- RGB LEDs -------- */
-// /* Use the standard gpio-leds binding so you can get them with LED API */
-// &gpioc { status = "okay"; };
-// &gpiob { status = "okay"; };
+/* -------- RGB LEDs -------- */
+/* Use the standard gpio-leds binding so you can get them with LED API */
+&gpioc { status = "okay"; };
+&gpiob { status = "okay"; };
