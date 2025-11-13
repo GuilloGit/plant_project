@@ -20,23 +20,16 @@
 
 	/* node '/aliases' defined in zephyr\dts\common\skeleton.dtsi:15 */
 	aliases {
-		led0 = &green_led_2;       /* in zephyr\boards\st\nucleo_wl55jc\nucleo_wl55jc.dts:68 */
-		sw0 = &user_button_1;      /* in zephyr\boards\st\nucleo_wl55jc\nucleo_wl55jc.dts:69 */
-		sw1 = &user_button_2;      /* in zephyr\boards\st\nucleo_wl55jc\nucleo_wl55jc.dts:70 */
-		sw2 = &user_button_3;      /* in zephyr\boards\st\nucleo_wl55jc\nucleo_wl55jc.dts:71 */
-		lora0 = &lora;             /* in zephyr\boards\st\nucleo_wl55jc\nucleo_wl55jc.dts:72 */
-		watchdog0 = &iwdg;         /* in zephyr\boards\st\nucleo_wl55jc\nucleo_wl55jc.dts:73 */
-		die-temp0 = &die_temp;     /* in zephyr\boards\st\nucleo_wl55jc\nucleo_wl55jc.dts:74 */
-		volt-sensor0 = &vref;      /* in zephyr\boards\st\nucleo_wl55jc\nucleo_wl55jc.dts:75 */
-		volt-sensor1 = &vbat;      /* in zephyr\boards\st\nucleo_wl55jc\nucleo_wl55jc.dts:76 */
-		adc-in = &adc1;            /* in ..\zephyr\plant_project\build\zephyr\boards\nucleo_wl55jc.overlay:6 */
-		lightsensor = &light_in;   /* in ..\zephyr\plant_project\build\zephyr\boards\nucleo_wl55jc.overlay:7 */
-		soilsensor = &moisture_in; /* in ..\zephyr\plant_project\build\zephyr\boards\nucleo_wl55jc.overlay:8 */
-		gps-uart = &usart1;        /* in ..\zephyr\plant_project\build\zephyr\boards\nucleo_wl55jc.overlay:11 */
-		i2c-bus = &i2c1;           /* in ..\zephyr\plant_project\build\zephyr\boards\nucleo_wl55jc.overlay:12 */
-		led-red = &led_red;        /* in ..\zephyr\plant_project\build\zephyr\boards\nucleo_wl55jc.overlay:15 */
-		led-green = &led_green;    /* in ..\zephyr\plant_project\build\zephyr\boards\nucleo_wl55jc.overlay:16 */
-		led-blue = &led_blue;      /* in ..\zephyr\plant_project\build\zephyr\boards\nucleo_wl55jc.overlay:17 */
+		led0 = &green_led_2;   /* in zephyr\boards\st\nucleo_wl55jc\nucleo_wl55jc.dts:68 */
+		sw0 = &user_button_1;  /* in zephyr\boards\st\nucleo_wl55jc\nucleo_wl55jc.dts:69 */
+		sw1 = &user_button_2;  /* in zephyr\boards\st\nucleo_wl55jc\nucleo_wl55jc.dts:70 */
+		sw2 = &user_button_3;  /* in zephyr\boards\st\nucleo_wl55jc\nucleo_wl55jc.dts:71 */
+		lora0 = &lora;         /* in zephyr\boards\st\nucleo_wl55jc\nucleo_wl55jc.dts:72 */
+		watchdog0 = &iwdg;     /* in zephyr\boards\st\nucleo_wl55jc\nucleo_wl55jc.dts:73 */
+		die-temp0 = &die_temp; /* in zephyr\boards\st\nucleo_wl55jc\nucleo_wl55jc.dts:74 */
+		volt-sensor0 = &vref;  /* in zephyr\boards\st\nucleo_wl55jc\nucleo_wl55jc.dts:75 */
+		volt-sensor1 = &vbat;  /* in zephyr\boards\st\nucleo_wl55jc\nucleo_wl55jc.dts:76 */
+		adc-in = &adc1;        /* in ..\zephyr\plant_project\build\zephyr\boards\nucleo_wl55jc.overlay:10 */
 	};
 
 	/* node '/soc' defined in zephyr\dts\arm\armv7-m.dtsi:6 */
@@ -186,7 +179,7 @@
 				#gpio-cells = < 0x2 >;        /* in zephyr\dts\arm\st\wl\stm32wl.dtsi:174 */
 				reg = < 0x48000000 0x400 >;   /* in zephyr\dts\arm\st\wl\stm32wl.dtsi:175 */
 				clocks = < &rcc 0x4c 0x1 >;   /* in zephyr\dts\arm\st\wl\stm32wl.dtsi:176 */
-				phandle = < 0x14 >;           /* in zephyr\dts\arm\st\wl\stm32wl.dtsi:535 */
+				phandle = < 0x12 >;           /* in zephyr\dts\arm\st\wl\stm32wl.dtsi:535 */
 			};
 
 			/* node '/soc/pin-controller@48000000/gpio@48000400' defined in zephyr\dts\arm\st\wl\stm32wl.dtsi:179 */
@@ -196,8 +189,7 @@
 				#gpio-cells = < 0x2 >;        /* in zephyr\dts\arm\st\wl\stm32wl.dtsi:182 */
 				reg = < 0x48000400 0x400 >;   /* in zephyr\dts\arm\st\wl\stm32wl.dtsi:183 */
 				clocks = < &rcc 0x4c 0x2 >;   /* in zephyr\dts\arm\st\wl\stm32wl.dtsi:184 */
-				status = "okay";              /* in ..\zephyr\plant_project\build\zephyr\boards\nucleo_wl55jc.overlay:109 */
-				phandle = < 0x15 >;           /* in zephyr\dts\arm\st\wl\stm32wl.dtsi:545 */
+				phandle = < 0x13 >;           /* in zephyr\dts\arm\st\wl\stm32wl.dtsi:545 */
 			};
 
 			/* node '/soc/pin-controller@48000000/gpio@48000800' defined in zephyr\dts\arm\st\wl\stm32wl.dtsi:187 */
@@ -207,8 +199,7 @@
 				#gpio-cells = < 0x2 >;        /* in zephyr\dts\arm\st\wl\stm32wl.dtsi:190 */
 				reg = < 0x48000800 0x400 >;   /* in zephyr\dts\arm\st\wl\stm32wl.dtsi:191 */
 				clocks = < &rcc 0x4c 0x4 >;   /* in zephyr\dts\arm\st\wl\stm32wl.dtsi:192 */
-				status = "okay";              /* in ..\zephyr\plant_project\build\zephyr\boards\nucleo_wl55jc.overlay:108 */
-				phandle = < 0xf >;            /* in zephyr\boards\st\nucleo_wl55jc\nucleo_wl55jc.dts:183 */
+				phandle = < 0xd >;            /* in zephyr\boards\st\nucleo_wl55jc\nucleo_wl55jc.dts:183 */
 			};
 
 			/* node '/soc/pin-controller@48000000/gpio@48001c00' defined in zephyr\dts\arm\st\wl\stm32wl.dtsi:195 */
@@ -218,25 +209,25 @@
 				#gpio-cells = < 0x2 >;        /* in zephyr\dts\arm\st\wl\stm32wl.dtsi:198 */
 				reg = < 0x48001c00 0x400 >;   /* in zephyr\dts\arm\st\wl\stm32wl.dtsi:199 */
 				clocks = < &rcc 0x4c 0x80 >;  /* in zephyr\dts\arm\st\wl\stm32wl.dtsi:200 */
-				phandle = < 0x1e >;           /* in zephyr\boards\st\nucleo_wl55jc\st_morpho_connector.dtsi:15 */
+				phandle = < 0x1c >;           /* in zephyr\boards\st\nucleo_wl55jc\st_morpho_connector.dtsi:15 */
 			};
 
 			/* node '/soc/pin-controller@48000000/adc_in4_pb2' defined in modules\hal\stm32\dts\st\wl\stm32wl55jcix-pinctrl.dtsi:43 */
 			adc_in4_pb2: adc_in4_pb2 {
 				pinmux = < 0x250 >; /* in modules\hal\stm32\dts\st\wl\stm32wl55jcix-pinctrl.dtsi:44 */
-				phandle = < 0x10 >; /* in ..\zephyr\plant_project\build\zephyr\boards\nucleo_wl55jc.overlay:71 */
+				phandle = < 0xe >;  /* in ..\zephyr\plant_project\build\zephyr\boards\nucleo_wl55jc.overlay:18 */
 			};
 
 			/* node '/soc/pin-controller@48000000/adc_in3_pb4' defined in modules\hal\stm32\dts\st\wl\stm32wl55jcix-pinctrl.dtsi:51 */
 			adc_in3_pb4: adc_in3_pb4 {
 				pinmux = < 0x290 >; /* in modules\hal\stm32\dts\st\wl\stm32wl55jcix-pinctrl.dtsi:52 */
-				phandle = < 0x11 >; /* in ..\zephyr\plant_project\build\zephyr\boards\nucleo_wl55jc.overlay:71 */
+				phandle = < 0xf >;  /* in ..\zephyr\plant_project\build\zephyr\boards\nucleo_wl55jc.overlay:18 */
 			};
 
 			/* node '/soc/pin-controller@48000000/dac_out1_pa10' defined in modules\hal\stm32\dts\st\wl\stm32wl55jcix-pinctrl.dtsi:323 */
 			dac_out1_pa10: dac_out1_pa10 {
 				pinmux = < 0x150 >; /* in modules\hal\stm32\dts\st\wl\stm32wl55jcix-pinctrl.dtsi:324 */
-				phandle = < 0x12 >; /* in zephyr\boards\st\nucleo_wl55jc\nucleo_wl55jc.dts:139 */
+				phandle = < 0x10 >; /* in zephyr\boards\st\nucleo_wl55jc\nucleo_wl55jc.dts:139 */
 			};
 
 			/* node '/soc/pin-controller@48000000/i2c2_scl_pa12' defined in modules\hal\stm32\dts\st\wl\stm32wl55jcix-pinctrl.dtsi:347 */
@@ -244,7 +235,7 @@
 				pinmux = < 0x184 >; /* in modules\hal\stm32\dts\st\wl\stm32wl55jcix-pinctrl.dtsi:348 */
 				bias-pull-up;       /* in modules\hal\stm32\dts\st\wl\stm32wl55jcix-pinctrl.dtsi:349 */
 				drive-open-drain;   /* in modules\hal\stm32\dts\st\wl\stm32wl55jcix-pinctrl.dtsi:350 */
-				phandle = < 0x9 >;  /* in zephyr\boards\st\nucleo_wl55jc\nucleo_wl55jc.dts:125 */
+				phandle = < 0x7 >;  /* in zephyr\boards\st\nucleo_wl55jc\nucleo_wl55jc.dts:125 */
 			};
 
 			/* node '/soc/pin-controller@48000000/i2c2_sda_pa11' defined in modules\hal\stm32\dts\st\wl\stm32wl55jcix-pinctrl.dtsi:403 */
@@ -252,28 +243,28 @@
 				pinmux = < 0x164 >; /* in modules\hal\stm32\dts\st\wl\stm32wl55jcix-pinctrl.dtsi:404 */
 				bias-pull-up;       /* in modules\hal\stm32\dts\st\wl\stm32wl55jcix-pinctrl.dtsi:405 */
 				drive-open-drain;   /* in modules\hal\stm32\dts\st\wl\stm32wl55jcix-pinctrl.dtsi:406 */
-				phandle = < 0xa >;  /* in zephyr\boards\st\nucleo_wl55jc\nucleo_wl55jc.dts:125 */
+				phandle = < 0x8 >;  /* in zephyr\boards\st\nucleo_wl55jc\nucleo_wl55jc.dts:125 */
 			};
 
 			/* node '/soc/pin-controller@48000000/spi1_miso_pa6' defined in modules\hal\stm32\dts\st\wl\stm32wl55jcix-pinctrl.dtsi:583 */
 			spi1_miso_pa6: spi1_miso_pa6 {
 				pinmux = < 0xc5 >; /* in modules\hal\stm32\dts\st\wl\stm32wl55jcix-pinctrl.dtsi:584 */
 				bias-pull-down;    /* in modules\hal\stm32\dts\st\wl\stm32wl55jcix-pinctrl.dtsi:585 */
-				phandle = < 0xd >; /* in zephyr\boards\st\nucleo_wl55jc\nucleo_wl55jc.dts:132 */
+				phandle = < 0xb >; /* in zephyr\boards\st\nucleo_wl55jc\nucleo_wl55jc.dts:132 */
 			};
 
 			/* node '/soc/pin-controller@48000000/spi1_mosi_pa7' defined in modules\hal\stm32\dts\st\wl\stm32wl55jcix-pinctrl.dtsi:615 */
 			spi1_mosi_pa7: spi1_mosi_pa7 {
 				pinmux = < 0xe5 >; /* in modules\hal\stm32\dts\st\wl\stm32wl55jcix-pinctrl.dtsi:616 */
 				bias-pull-down;    /* in modules\hal\stm32\dts\st\wl\stm32wl55jcix-pinctrl.dtsi:617 */
-				phandle = < 0xe >; /* in zephyr\boards\st\nucleo_wl55jc\nucleo_wl55jc.dts:132 */
+				phandle = < 0xc >; /* in zephyr\boards\st\nucleo_wl55jc\nucleo_wl55jc.dts:132 */
 			};
 
 			/* node '/soc/pin-controller@48000000/spi1_nss_pa4' defined in modules\hal\stm32\dts\st\wl\stm32wl55jcix-pinctrl.dtsi:652 */
 			spi1_nss_pa4: spi1_nss_pa4 {
 				pinmux = < 0x85 >; /* in modules\hal\stm32\dts\st\wl\stm32wl55jcix-pinctrl.dtsi:653 */
 				bias-pull-up;      /* in modules\hal\stm32\dts\st\wl\stm32wl55jcix-pinctrl.dtsi:654 */
-				phandle = < 0xb >; /* in zephyr\boards\st\nucleo_wl55jc\nucleo_wl55jc.dts:132 */
+				phandle = < 0x9 >; /* in zephyr\boards\st\nucleo_wl55jc\nucleo_wl55jc.dts:132 */
 			};
 
 			/* node '/soc/pin-controller@48000000/spi1_sck_pa5' defined in modules\hal\stm32\dts\st\wl\stm32wl55jcix-pinctrl.dtsi:690 */
@@ -281,39 +272,26 @@
 				pinmux = < 0xa5 >;             /* in modules\hal\stm32\dts\st\wl\stm32wl55jcix-pinctrl.dtsi:691 */
 				bias-pull-down;                /* in modules\hal\stm32\dts\st\wl\stm32wl55jcix-pinctrl.dtsi:692 */
 				slew-rate = "very-high-speed"; /* in modules\hal\stm32\dts\st\wl\stm32wl55jcix-pinctrl.dtsi:693 */
-				phandle = < 0xc >;             /* in zephyr\boards\st\nucleo_wl55jc\nucleo_wl55jc.dts:132 */
+				phandle = < 0xa >;             /* in zephyr\boards\st\nucleo_wl55jc\nucleo_wl55jc.dts:132 */
 			};
 
 			/* node '/soc/pin-controller@48000000/tim2_ch4_pb11' defined in modules\hal\stm32\dts\st\wl\stm32wl55jcix-pinctrl.dtsi:830 */
 			tim2_ch4_pb11: tim2_ch4_pb11 {
 				pinmux = < 0x361 >; /* in modules\hal\stm32\dts\st\wl\stm32wl55jcix-pinctrl.dtsi:831 */
-				phandle = < 0x13 >; /* in zephyr\boards\st\nucleo_wl55jc\nucleo_wl55jc.dts:149 */
+				phandle = < 0x11 >; /* in zephyr\boards\st\nucleo_wl55jc\nucleo_wl55jc.dts:149 */
 			};
 
 			/* node '/soc/pin-controller@48000000/lpuart1_rx_pa3' defined in modules\hal\stm32\dts\st\wl\stm32wl55jcix-pinctrl.dtsi:941 */
 			lpuart1_rx_pa3: lpuart1_rx_pa3 {
 				pinmux = < 0x68 >; /* in modules\hal\stm32\dts\st\wl\stm32wl55jcix-pinctrl.dtsi:942 */
-				phandle = < 0x8 >; /* in zephyr\boards\st\nucleo_wl55jc\nucleo_wl55jc.dts:118 */
-			};
-
-			/* node '/soc/pin-controller@48000000/usart1_rx_pb7' defined in modules\hal\stm32\dts\st\wl\stm32wl55jcix-pinctrl.dtsi:949 */
-			usart1_rx_pb7: usart1_rx_pb7 {
-				pinmux = < 0x2e7 >; /* in modules\hal\stm32\dts\st\wl\stm32wl55jcix-pinctrl.dtsi:950 */
-				phandle = < 0x6 >;  /* in ..\zephyr\plant_project\build\zephyr\boards\nucleo_wl55jc.overlay:61 */
+				phandle = < 0x6 >; /* in zephyr\boards\st\nucleo_wl55jc\nucleo_wl55jc.dts:118 */
 			};
 
 			/* node '/soc/pin-controller@48000000/lpuart1_tx_pa2' defined in modules\hal\stm32\dts\st\wl\stm32wl55jcix-pinctrl.dtsi:967 */
 			lpuart1_tx_pa2: lpuart1_tx_pa2 {
 				pinmux = < 0x48 >; /* in modules\hal\stm32\dts\st\wl\stm32wl55jcix-pinctrl.dtsi:968 */
 				bias-pull-up;      /* in modules\hal\stm32\dts\st\wl\stm32wl55jcix-pinctrl.dtsi:969 */
-				phandle = < 0x7 >; /* in zephyr\boards\st\nucleo_wl55jc\nucleo_wl55jc.dts:118 */
-			};
-
-			/* node '/soc/pin-controller@48000000/usart1_tx_pb6' defined in modules\hal\stm32\dts\st\wl\stm32wl55jcix-pinctrl.dtsi:977 */
-			usart1_tx_pb6: usart1_tx_pb6 {
-				pinmux = < 0x2c7 >; /* in modules\hal\stm32\dts\st\wl\stm32wl55jcix-pinctrl.dtsi:978 */
-				bias-pull-up;       /* in modules\hal\stm32\dts\st\wl\stm32wl55jcix-pinctrl.dtsi:979 */
-				phandle = < 0x5 >;  /* in ..\zephyr\plant_project\build\zephyr\boards\nucleo_wl55jc.overlay:61 */
+				phandle = < 0x5 >; /* in zephyr\boards\st\nucleo_wl55jc\nucleo_wl55jc.dts:118 */
 			};
 		};
 
@@ -369,14 +347,12 @@
 		/* node '/soc/serial@40013800' defined in zephyr\dts\arm\st\wl\stm32wl.dtsi:252 */
 		usart1: arduino_serial: serial@40013800 {
 			compatible = "st,stm32-usart",
-			             "st,stm32-uart";                  /* in zephyr\dts\arm\st\wl\stm32wl.dtsi:253 */
-			reg = < 0x40013800 0x400 >;                    /* in zephyr\dts\arm\st\wl\stm32wl.dtsi:254 */
-			clocks = < &rcc 0x60 0x4000 >;                 /* in zephyr\dts\arm\st\wl\stm32wl.dtsi:255 */
-			resets = < &rctl 0x80e >;                      /* in zephyr\dts\arm\st\wl\stm32wl.dtsi:256 */
-			interrupts = < 0x24 0x0 >;                     /* in zephyr\dts\arm\st\wl\stm32wl.dtsi:257 */
-			status = "okay";                               /* in ..\zephyr\plant_project\build\zephyr\boards\nucleo_wl55jc.overlay:59 */
-			pinctrl-0 = < &usart1_tx_pb6 &usart1_rx_pb7 >; /* in ..\zephyr\plant_project\build\zephyr\boards\nucleo_wl55jc.overlay:61 */
-			pinctrl-names = "default";                     /* in ..\zephyr\plant_project\build\zephyr\boards\nucleo_wl55jc.overlay:62 */
+			             "st,stm32-uart";  /* in zephyr\dts\arm\st\wl\stm32wl.dtsi:253 */
+			reg = < 0x40013800 0x400 >;    /* in zephyr\dts\arm\st\wl\stm32wl.dtsi:254 */
+			clocks = < &rcc 0x60 0x4000 >; /* in zephyr\dts\arm\st\wl\stm32wl.dtsi:255 */
+			resets = < &rctl 0x80e >;      /* in zephyr\dts\arm\st\wl\stm32wl.dtsi:256 */
+			interrupts = < 0x24 0x0 >;     /* in zephyr\dts\arm\st\wl\stm32wl.dtsi:257 */
+			status = "disabled";           /* in zephyr\dts\arm\st\wl\stm32wl.dtsi:258 */
 		};
 
 		/* node '/soc/serial@40004400' defined in zephyr\dts\arm\st\wl\stm32wl.dtsi:261 */
@@ -418,7 +394,7 @@
 			interrupt-names = "event",
 			                  "error";       /* in zephyr\dts\arm\st\wl\stm32wl.dtsi:288 */
 			status = "disabled";             /* in zephyr\dts\arm\st\wl\stm32wl.dtsi:289 */
-			phandle = < 0x1b >;              /* in zephyr\dts\arm\st\wl\stm32wl.dtsi:580 */
+			phandle = < 0x19 >;              /* in zephyr\dts\arm\st\wl\stm32wl.dtsi:580 */
 		};
 
 		/* node '/soc/i2c@40005800' defined in zephyr\dts\arm\st\wl\stm32wl.dtsi:292 */
@@ -436,7 +412,7 @@
 			pinctrl-names = "default";                     /* in zephyr\boards\st\nucleo_wl55jc\nucleo_wl55jc.dts:126 */
 			status = "okay";                               /* in zephyr\boards\st\nucleo_wl55jc\nucleo_wl55jc.dts:127 */
 			clock-frequency = < 0x61a80 >;                 /* in zephyr\boards\st\nucleo_wl55jc\nucleo_wl55jc.dts:128 */
-			phandle = < 0x1c >;                            /* in zephyr\dts\arm\st\wl\stm32wl.dtsi:588 */
+			phandle = < 0x1a >;                            /* in zephyr\dts\arm\st\wl\stm32wl.dtsi:588 */
 		};
 
 		/* node '/soc/i2c@40005c00' defined in zephyr\dts\arm\st\wl\stm32wl.dtsi:304 */
@@ -452,7 +428,7 @@
 			interrupt-names = "event",
 			                  "error";       /* in zephyr\dts\arm\st\wl\stm32wl.dtsi:312 */
 			status = "disabled";             /* in zephyr\dts\arm\st\wl\stm32wl.dtsi:313 */
-			phandle = < 0x1d >;              /* in zephyr\dts\arm\st\wl\stm32wl.dtsi:596 */
+			phandle = < 0x1b >;              /* in zephyr\dts\arm\st\wl\stm32wl.dtsi:596 */
 		};
 
 		/* node '/soc/spi@40013000' defined in zephyr\dts\arm\st\wl\stm32wl.dtsi:316 */
@@ -526,10 +502,10 @@
 			st,adc-internal-regulator = "startup-sw-delay";           /* in zephyr\dts\arm\st\wl\stm32wl.dtsi:369 */
 			st,adc-clock-source = "SYNC";                             /* in zephyr\boards\st\nucleo_wl55jc\nucleo_wl55jc.dts:157 */
 			st,adc-prescaler = < 0x4 >;                               /* in zephyr\boards\st\nucleo_wl55jc\nucleo_wl55jc.dts:158 */
-			status = "okay";                                          /* in ..\zephyr\plant_project\build\zephyr\boards\nucleo_wl55jc.overlay:69 */
-			pinctrl-0 = < &adc_in4_pb2 &adc_in3_pb4 >;                /* in ..\zephyr\plant_project\build\zephyr\boards\nucleo_wl55jc.overlay:71 */
-			pinctrl-names = "default";                                /* in ..\zephyr\plant_project\build\zephyr\boards\nucleo_wl55jc.overlay:72 */
-			phandle = < 0x1a >;                                       /* in zephyr\dts\arm\st\wl\stm32wl.dtsi:557 */
+			status = "okay";                                          /* in ..\zephyr\plant_project\build\zephyr\boards\nucleo_wl55jc.overlay:16 */
+			pinctrl-0 = < &adc_in4_pb2 &adc_in3_pb4 >;                /* in ..\zephyr\plant_project\build\zephyr\boards\nucleo_wl55jc.overlay:18 */
+			pinctrl-names = "default";                                /* in ..\zephyr\plant_project\build\zephyr\boards\nucleo_wl55jc.overlay:19 */
+			phandle = < 0x18 >;                                       /* in zephyr\dts\arm\st\wl\stm32wl.dtsi:557 */
 		};
 
 		/* node '/soc/dac@40007400' defined in zephyr\dts\arm\st\wl\stm32wl.dtsi:373 */
@@ -760,7 +736,7 @@
 				power-state-name = "suspend-to-idle"; /* in zephyr\dts\arm\st\wl\stm32wl.dtsi:41 */
 				substate-id = < 0x1 >;                /* in zephyr\dts\arm\st\wl\stm32wl.dtsi:42 */
 				min-residency-us = < 0x64 >;          /* in zephyr\dts\arm\st\wl\stm32wl.dtsi:43 */
-				phandle = < 0x16 >;                   /* in zephyr\dts\arm\st\wl\stm32wl.dtsi:35 */
+				phandle = < 0x14 >;                   /* in zephyr\dts\arm\st\wl\stm32wl.dtsi:35 */
 			};
 
 			/* node '/cpus/power-states/state1' defined in zephyr\dts\arm\st\wl\stm32wl.dtsi:46 */
@@ -769,7 +745,7 @@
 				power-state-name = "suspend-to-idle"; /* in zephyr\dts\arm\st\wl\stm32wl.dtsi:48 */
 				substate-id = < 0x2 >;                /* in zephyr\dts\arm\st\wl\stm32wl.dtsi:49 */
 				min-residency-us = < 0x1f4 >;         /* in zephyr\dts\arm\st\wl\stm32wl.dtsi:50 */
-				phandle = < 0x17 >;                   /* in zephyr\dts\arm\st\wl\stm32wl.dtsi:35 */
+				phandle = < 0x15 >;                   /* in zephyr\dts\arm\st\wl\stm32wl.dtsi:35 */
 			};
 
 			/* node '/cpus/power-states/state2' defined in zephyr\dts\arm\st\wl\stm32wl.dtsi:53 */
@@ -778,7 +754,7 @@
 				power-state-name = "suspend-to-idle"; /* in zephyr\dts\arm\st\wl\stm32wl.dtsi:55 */
 				substate-id = < 0x3 >;                /* in zephyr\dts\arm\st\wl\stm32wl.dtsi:56 */
 				min-residency-us = < 0x384 >;         /* in zephyr\dts\arm\st\wl\stm32wl.dtsi:57 */
-				phandle = < 0x18 >;                   /* in zephyr\dts\arm\st\wl\stm32wl.dtsi:35 */
+				phandle = < 0x16 >;                   /* in zephyr\dts\arm\st\wl\stm32wl.dtsi:35 */
 			};
 		};
 	};
@@ -808,7 +784,7 @@
 			compatible = "fixed-clock";     /* in zephyr\dts\arm\st\wl\stm32wl.dtsi:78 */
 			clock-frequency = < 0xf42400 >; /* in zephyr\dts\arm\st\wl\stm32wl.dtsi:79 */
 			status = "okay";                /* in zephyr\boards\st\nucleo_wl55jc\nucleo_wl55jc.dts:91 */
-			phandle = < 0x19 >;             /* in zephyr\boards\st\nucleo_wl55jc\nucleo_wl55jc.dts:103 */
+			phandle = < 0x17 >;             /* in zephyr\boards\st\nucleo_wl55jc\nucleo_wl55jc.dts:103 */
 		};
 
 		/* node '/clocks/clk-msi' defined in zephyr\dts\arm\st\wl\stm32wl.dtsi:83 */
@@ -997,7 +973,7 @@
 
 	/* node '/leds' defined in zephyr\boards\st\nucleo_wl55jc\nucleo_wl55jc.dts:26 */
 	leds: leds {
-		compatible = "gpio-leds"; /* in ..\zephyr\plant_project\build\zephyr\boards\nucleo_wl55jc.overlay:26 */
+		compatible = "gpio-leds"; /* in zephyr\boards\st\nucleo_wl55jc\nucleo_wl55jc.dts:27 */
 
 		/* node '/leds/led_0' defined in zephyr\boards\st\nucleo_wl55jc\nucleo_wl55jc.dts:29 */
 		blue_led_1: led_0 {
@@ -1015,24 +991,6 @@
 		red_led_3: led_2 {
 			gpios = < &gpiob 0xb 0x0 >; /* in zephyr\boards\st\nucleo_wl55jc\nucleo_wl55jc.dts:40 */
 			label = "User LED3";        /* in zephyr\boards\st\nucleo_wl55jc\nucleo_wl55jc.dts:41 */
-		};
-
-		/* node '/leds/led_red' defined in ..\zephyr\plant_project\build\zephyr\boards\nucleo_wl55jc.overlay:28 */
-		led_red: led_red {
-			gpios = < &gpioc 0x2 0x1 >; /* in ..\zephyr\plant_project\build\zephyr\boards\nucleo_wl55jc.overlay:29 */
-			label = "RGB_RED";          /* in ..\zephyr\plant_project\build\zephyr\boards\nucleo_wl55jc.overlay:30 */
-		};
-
-		/* node '/leds/led_green' defined in ..\zephyr\plant_project\build\zephyr\boards\nucleo_wl55jc.overlay:33 */
-		led_green: led_green {
-			gpios = < &gpioc 0x1 0x1 >; /* in ..\zephyr\plant_project\build\zephyr\boards\nucleo_wl55jc.overlay:34 */
-			label = "RGB_GREEN";        /* in ..\zephyr\plant_project\build\zephyr\boards\nucleo_wl55jc.overlay:35 */
-		};
-
-		/* node '/leds/led_blue' defined in ..\zephyr\plant_project\build\zephyr\boards\nucleo_wl55jc.overlay:38 */
-		led_blue: led_blue {
-			gpios = < &gpiob 0xc 0x1 >; /* in ..\zephyr\plant_project\build\zephyr\boards\nucleo_wl55jc.overlay:39 */
-			label = "RGB_BLUE";         /* in ..\zephyr\plant_project\build\zephyr\boards\nucleo_wl55jc.overlay:40 */
 		};
 	};
 
@@ -1062,15 +1020,11 @@
 		};
 	};
 
-	/* node '/light_input' defined in ..\zephyr\plant_project\build\zephyr\boards\nucleo_wl55jc.overlay:46 */
-	light_in: light_input {
-		compatible = "st,stm32-adc-channel"; /* in ..\zephyr\plant_project\build\zephyr\boards\nucleo_wl55jc.overlay:47 */
-		io-channels = < &adc1 0x4 >;         /* in ..\zephyr\plant_project\build\zephyr\boards\nucleo_wl55jc.overlay:48 */
-	};
-
-	/* node '/moisture_input' defined in ..\zephyr\plant_project\build\zephyr\boards\nucleo_wl55jc.overlay:51 */
-	moisture_in: moisture_input {
-		compatible = "st,stm32-adc-channel"; /* in ..\zephyr\plant_project\build\zephyr\boards\nucleo_wl55jc.overlay:52 */
-		io-channels = < &adc1 0x3 >;         /* in ..\zephyr\plant_project\build\zephyr\boards\nucleo_wl55jc.overlay:53 */
+	/* node '/zephyr,user' defined in ..\zephyr\plant_project\build\zephyr\boards\nucleo_wl55jc.overlay:3 */
+	zephyr,user {
+		io-channels = < &adc1 0x4 >,
+		              < &adc1 0x3 >;           /* in ..\zephyr\plant_project\build\zephyr\boards\nucleo_wl55jc.overlay:5 */
+		io-channel-names = "light-sensor-in",
+		                   "soil-moisture-in"; /* in ..\zephyr\plant_project\build\zephyr\boards\nucleo_wl55jc.overlay:6 */
 	};
 };

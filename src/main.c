@@ -2,10 +2,10 @@
 #include <zephyr/sys/printk.h>
 
 /* Project sensors */
-#include "soil_sensor.h"
-#include "light_sensor.h"
-#include "color_sensor.h"
-#include "gps.h"
+#include "sensors/soil_sensor.h"
+#include "sensors/light_sensor.h"
+#include "sensors/color_sensor.h"
+#include "sensors/gps.h"
 
 void main(void)
 {
@@ -36,12 +36,8 @@ void main(void)
     while (1)
     {
         /* ----- SOIL MOISTURE ----- */
-        int soil_raw = soil_sensor_read();
-        if (soil_raw >= 0) {
-            printk("Soil moisture RAW = %d\n", soil_raw);
-        } else {
-            printk("Soil moisture read error\n");
-        }
+        uint16_t soil_raw = soil_sensor_read();
+        printk("Soil moisture RAW = %u\n", soil_raw);
 
         // /* ----- LIGHT SENSOR ----- */
         // int light_raw = light_sensor_read();

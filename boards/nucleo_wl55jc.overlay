@@ -1,109 +1,120 @@
 #include <zephyr/dt-bindings/pinctrl/stm32-pinctrl.h>
-
 / {
-	aliases {
+	zephyr,user {
+	/* Put PB2 (IN4) and PB4 (IN3) into analog mode */
+		io-channels = <&adc1 4>, <&adc1 3>;
+        io-channel-names = "light-sensor-in", "soil-moisture-in"; 
+	};
+    aliases {
 		/* ADC device + channels */
-		adc-in        = &adc1;
-		lightsensor   = &light_in;
-		soilsensor    = &moisture_in;
-
-		/* UART and I2C buses */
-		gps-uart   = &usart1;
-		i2c-bus    = &i2c1;
-
-		/* LEDs */
-		led-red    = &led_red;
-		led-green  = &led_green;
-		led-blue   = &led_blue;
-
-		// /* Optional: aliases for the three I2C sensors */
-		// proj_i2c_sens0  = &i2c_sens0;
-		// proj_i2c_sens1  = &i2c_sens1;
-		// proj_i2c_sens2  = &i2c_sens2;
-	};
-    /* A simple leds node with three children */
-    leds {
-        compatible = "gpio-leds";
-
-        led_red: led_red {
-            gpios = <&gpioc 2 GPIO_ACTIVE_LOW>;   /* PC2 */
-            label = "RGB_RED";
-        };
-
-        led_green: led_green {
-            gpios = <&gpioc 1 GPIO_ACTIVE_LOW>;   /* PC1 */
-            label = "RGB_GREEN";
-        };
-
-        led_blue: led_blue {
-            gpios = <&gpiob 12 GPIO_ACTIVE_LOW>;  /* PB12 */
-            label = "RGB_BLUE";
-        };
-    };
+		adc-in              = &adc1;
+	    };
+};    
 
 
-	/* Channel nodes that carry io-channels → used by ADC_DT_SPEC_GET() */
-	light_in: light_input {
-		compatible = "st,stm32-adc-channel";
-		io-channels = <&adc1 4>;   /* PB2 → ADC1_IN4 */
-	};
-
-	moisture_in: moisture_input {
-		compatible = "st,stm32-adc-channel";
-		io-channels = <&adc1 3>;   /* PB4 → ADC1_IN3 */
-	};
-};
-
-/* -------- UART: GPS on USART1 (PB6 TX, PB7 RX) -------- */
-&usart1 {
-	status = "okay";
-	/* Use the WL pinctrl labels for PB6/PB7 alt functions */
-	pinctrl-0 = <&usart1_tx_pb6 &usart1_rx_pb7>;
-	pinctrl-names = "default";
-	/* Optionally choose for console/stdio if you want:
-	   current-speed = <9600>; */
-};
-
-/* -------- ADC: enable ADC1 + set analog pins -------- */
 &adc1 {
 	status = "okay";
-	/* Put PB2 (IN4) and PB4 (IN3) into analog mode */
+	/* Put chosen analog pins in the default state */
 	pinctrl-0 = <&adc_in4_pb2 &adc_in3_pb4>;
 	pinctrl-names = "default";
 };
 
-/* (see channel nodes defined inside / { ... } above) */
 
-/* -------- I2C1: enable + attach three sensors -------- */
-// &i2c1 {
-// 	status = "okay";
-// 	/* If your board dts already defines pinctrl for I2C1, you can omit these.
-// 	   Typical Nucleo Arduino A5/A4 are PB8/PB9 for I2C1 (SCL/SDA): */
-// 	/* pinctrl-0 = <&i2c1_scl_pb8 &i2c1_sda_pb9>;
-// 	   pinctrl-names = "default"; */
+// / {
+// 	aliases {
+// 		/* ADC device + channels */
+// 		adcin        = &adc1;
+// 		lightsensor   = &light_in;
+// 		soilsensor    = &moisture_in;
 
-// 	/* Replace compatibles + reg addresses with your actual sensors */
-// 	i2c_sens0: sensor0@0x18 {
-// 		/* Example: "ti,ina219", "bosch,bme280", etc. */
-// 		compatible = "i2c-device";
-// 		reg = <0x18>;
-// 		status = "okay";
-// 	};
+// 		/* UART and I2C buses */
+// 		gpsuart   = &usart1;
+// 		i2cbus    = &i2c1;
 
-// 	i2c_sens1: sensor1@0x40 {
-// 		compatible = "i2c-device";
-// 		reg = <0x40>;
-// 		status = "okay";
-// 	};
+// 		/* LEDs */
+// 		led-red    = &led_red;
+// 		led-green  = &led_green;
+// 		led-blue   = &led_blue;
 
-// 	i2c_sens2: sensor2@0x76 {
-// 		compatible = "i2c-device";
-// 		reg = <0x76>;
-// 		status = "okay";
-// 	};
+// 		// /* Optional: aliases for the three I2C sensors */
+// 		// proj_i2c_sens0  = &i2c_sens0;
+// 		// proj_i2c_sens1  = &i2c_sens1;
+// 		// proj_i2c_sens2  = &i2c_sens2;
+// 	    };
+//     /* A simple leds node with three children */
+//     leds {
+//         compatible = "gpio-leds";
+
+//         led_red: led_red {
+//             gpios = <&gpioc 2 GPIO_ACTIVE_LOW>;   /* PC2 */
+//             label = "RGB_RED";
+//         };
+
+//         led_green: led_green {
+//             gpios = <&gpioc 1 GPIO_ACTIVE_LOW>;   /* PC1 */
+//             label = "RGB_GREEN";
+//         };
+
+//         led_blue: led_blue {
+//             gpios = <&gpiob 12 GPIO_ACTIVE_LOW>;  /* PB12 */
+//             label = "RGB_BLUE";
+//         };
+//     };
+
+
+
 // };
 
-/* -------- RGB LEDs -------- */
-/* Use the standard gpio-leds binding so you can get them with LED API */
-&gpioc { status = "okay"; };
-&gpiob { status = "okay"; };
+// /* -------- UART: GPS on USART1 (PB6 TX, PB7 RX) -------- */
+// &usart1 {
+// 	status = "okay";
+// 	/* Use the WL pinctrl labels for PB6/PB7 alt functions */
+// 	pinctrl-0 = <&usart1_tx_pb6 &usart1_rx_pb7>;
+// 	pinctrl-names = "default";
+// 	/* Optionally choose for console/stdio if you want:
+// 	   current-speed = <9600>; */
+// };
+
+// /* -------- ADC: enable ADC1 + set analog pins -------- */
+// &adc1 {
+// 	status = "okay";
+// 	/* Put PB2 (IN4) and PB4 (IN3) into analog mode */
+// 	pinctrl-0 = <&adc_in4_pb2 &adc_in3_pb4>;
+// 	pinctrl-names = "default";
+// };
+
+// /* (see channel nodes defined inside / { ... } above) */
+
+// /* -------- I2C1: enable + attach three sensors -------- */
+// // &i2c1 {
+// // 	status = "okay";
+// // 	/* If your board dts already defines pinctrl for I2C1, you can omit these.
+// // 	   Typical Nucleo Arduino A5/A4 are PB8/PB9 for I2C1 (SCL/SDA): */
+// // 	/* pinctrl-0 = <&i2c1_scl_pb8 &i2c1_sda_pb9>;
+// // 	   pinctrl-names = "default"; */
+
+// // 	/* Replace compatibles + reg addresses with your actual sensors */
+// // 	i2c_sens0: sensor0@0x18 {
+// // 		/* Example: "ti,ina219", "bosch,bme280", etc. */
+// // 		compatible = "i2c-device";
+// // 		reg = <0x18>;
+// // 		status = "okay";
+// // 	};
+
+// // 	i2c_sens1: sensor1@0x40 {
+// // 		compatible = "i2c-device";
+// // 		reg = <0x40>;
+// // 		status = "okay";
+// // 	};
+
+// // 	i2c_sens2: sensor2@0x76 {
+// // 		compatible = "i2c-device";
+// // 		reg = <0x76>;
+// // 		status = "okay";
+// // 	};
+// // };
+
+// /* -------- RGB LEDs -------- */
+// /* Use the standard gpio-leds binding so you can get them with LED API */
+// &gpioc { status = "okay"; };
+// &gpiob { status = "okay"; };

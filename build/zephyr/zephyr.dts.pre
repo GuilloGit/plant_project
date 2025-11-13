@@ -2086,69 +2086,16 @@ stm32_lp_tick_source: &lptim1 {
 # 0 "<command-line>" 2
 # 1 "././boards/nucleo_wl55jc.overlay" 1
 
-
 / {
- aliases {
+ zephyr,user {
+
+  io-channels = <&adc1 4>, <&adc1 3>;
+        io-channel-names = "light-sensor-in", "soil-moisture-in";
+ };
+    aliases {
 
   adc-in = &adc1;
-  lightsensor = &light_in;
-  soilsensor = &moisture_in;
-
-
-  gps-uart = &usart1;
-  i2c-bus = &i2c1;
-
-
-  led-red = &led_red;
-  led-green = &led_green;
-  led-blue = &led_blue;
-
-
-
-
-
- };
-
-    leds {
-        compatible = "gpio-leds";
-
-        led_red: led_red {
-            gpios = <&gpioc 2 (1 << 0)>;
-            label = "RGB_RED";
-        };
-
-        led_green: led_green {
-            gpios = <&gpioc 1 (1 << 0)>;
-            label = "RGB_GREEN";
-        };
-
-        led_blue: led_blue {
-            gpios = <&gpiob 12 (1 << 0)>;
-            label = "RGB_BLUE";
-        };
-    };
-
-
-
- light_in: light_input {
-  compatible = "st,stm32-adc-channel";
-  io-channels = <&adc1 4>;
- };
-
- moisture_in: moisture_input {
-  compatible = "st,stm32-adc-channel";
-  io-channels = <&adc1 3>;
- };
-};
-
-
-&usart1 {
- status = "okay";
-
- pinctrl-0 = <&usart1_tx_pb6 &usart1_rx_pb7>;
- pinctrl-names = "default";
-
-
+     };
 };
 
 
@@ -2158,8 +2105,5 @@ stm32_lp_tick_source: &lptim1 {
  pinctrl-0 = <&adc_in4_pb2 &adc_in3_pb4>;
  pinctrl-names = "default";
 };
-# 108 "././boards/nucleo_wl55jc.overlay"
-&gpioc { status = "okay"; };
-&gpiob { status = "okay"; };
 # 0 "<command-line>" 2
 # 1 "C:/projects/zephyrproject/zephyr/misc/empty_file.c"
