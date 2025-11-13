@@ -1,5 +1,24 @@
+# VS Code
 .vscode/settings.json
 .vscode/tasks.json
-.zephyr-cache
+
+# Zephyr build artifacts
 build/
+.zephyr-cache/
+ToolchainCapabilityDatabase/
 cmake_build/
+
+# IDE
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Editor backups
+*.bak
+*.tmp
