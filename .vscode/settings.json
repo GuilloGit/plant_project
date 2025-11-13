@@ -1,0 +1,17 @@
+{
+  // Environment variables for the integrated terminal in VS Code (Windows)
+  "terminal.integrated.env.windows": {
+    "ZEPHYR_TOOLCHAIN_VARIANT": "zephyr",
+    "ZEPHYR_SDK_INSTALL_DIR": "C:/Users/guillermo/zephyr-sdk-0.17.4", 
+    "PROJECT_DIR": "C:/projects/zephyr/plant_project",
+    "ZEPHYR_DIR": "C:/Users/guillermo/zephyrproject/",
+    "PATH": "C:\\Users\\guillermo\\zephyrproject\\.venv\\Scripts;C:\\Users\\guillermo\\zephyr-sdk-0.17.4\\arm-zephyr-eabi\\bin;C:\\Users\\guillermo\\AppData\\Local\\Microsoft\\WinGet\\Packages\\oss-winget.dtc_Microsoft.WinGet.Source_8wekyb3d8bbwe\\usr\\bin;C:\\Users\\guillermo\\AppData\\Local\\Microsoft\\WinGet\\Packages\\oss-winget.gperf_Microsoft.Winget.Source_8wekyb3d8bbwe;${env:PATH}",
+    //"PATH": "C:\\Users\\guillermo\\zephyrproject\\.venv\\Scripts;C:\\Users\\guillermo\\zephyr-sdk-0.17.4\\x86_64-zephyr-elf\\bin;C:\\Users\\guillermo\\AppData\\Local\\Microsoft\\WinGet\\Packages\\oss-winget.dtc_Microsoft.Winget.Source_8wekyb3d8bbwe\\usr\\bin;${env:PATH}",
+    "ZEPHYR_BASE": "C:/projects/zephyrproject/zephyr",
+
+  },
+  "files.associations": {
+    "kernel.h": "c",
+    "gpio.h": "c"
+  },
+}

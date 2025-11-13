@@ -1,0 +1,121 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+
+    // Build tasks
+    {
+      "label": "West Build (auto)",
+      "type": "shell",
+      "group": {
+        "kind": "build",
+      },
+      //"linux": {
+      //  "command": "C:/Asignaturas/EMB_PLA_COM/zephyrproject/.venv/Scripts/west.exe" // This path has to be absolute (permissions)
+      //},
+      //"windows": {
+      //  "command": "C:/Users/guillermo/zephyrproject/.venv/Scripts/west.exe" // This path has to be absolute (permissions)
+      //},
+      //"osx": {
+      //  "command": "C:/Asignaturas/EMB_PLA_COM/zephyrproject/.venv/Scripts/west.exe" // This path has to be absolute (permissions)
+      //},
+      "command": "west",
+      "args": [
+        "build",
+        "-p", "auto",
+        "-b", "nucleo_wl55jc",
+        "${workspaceFolder}", // VS Code variable for the current project folder
+        //"$env:PROJECT_DIR",
+        "-d", "${workspaceFolder}/build",
+        //"-d", "$env:PROJECT_DIR/build",
+        "-DUSER_CACHE_DIR=${workspaceFolder}/.zephyr-cache",   
+        // "-DUSER_CACHE_DIR=C:/projects/zephyr/brightrgb/.zephyr-cache", // This path has to be absolute (permissions)
+        "-DDTC_OVERLAY_FILE='./boards/nucleo_wl55jc.overlay'",
+        "-DCONF_FILE='./confs/prj_nucleo_wl55jc.conf'",
+        "-DUSE_CCACHE=0",
+      ],
+      "options": {
+        // We use the ZEPHYR_BASE from settings.json as the working directory.
+        "cwd": "${env:ZEPHYR_BASE}"
+        //cwd": "C:/Users/guillermo/zephyrproject/zephyr" // This path has to be absolute (permissions)
+      },
+      "problemMatcher": [
+        "$gcc"
+      ]
+    },
+    
+    // Flash tasks
+    {
+      "label": "Flash (CubeProgrammer, UR+HWrst)",
+      "type": "shell",
+      "windows": {
+        "command": "C:\\Program Files\\STMicroelectronics\\STM32Cube\\STM32CubeProgrammer\\bin\\STM32_Programmer_CLI.exe" // This path has to be absolute (where STM32Cube is installed)
+      },
+      "args": [
+        "--connect", "port=swd", "mode=UR", "reset=HWrst",
+        "--download", "$env:PROJECT_DIR\\build\\zephyr\\zephyr.hex",
+        "--start"
+      ],
+      "problemMatcher": []
+    },
+
+    // Monitor tasks
+    {
+      "label": "List COM Ports",
+      "type": "shell",
+      "windows": {
+        "command": "powershell"
+      },
+      "args": [
+        "-NoProfile",
+        "-ExecutionPolicy", "Bypass",
+        "-Command",
+        "Get-CimInstance Win32_SerialPort | Select-Object DeviceID, Name, Description"
+      ],
+      "problemMatcher": []
+    },
+
+    {
+      "label": "Serial Monitor",
+      "type": "shell",
+      "windows": {
+        "command": "plink -serial COM6 -sercfg 115200,8,n,1,N" // Change COM port
+      },
+      "problemMatcher": [
+        "$gcc"
+      ]
+    },
+
+    // Clean tasks
+    {
+      "label": "Clean Build",
+      "type": "shell",
+      "windows": {
+        "command": "rmdir"
+      },
+      "args": [
+        "${workspaceFolder}/build",
+        //"$env:PROJECT_DIR/build",
+        "-Recurse", "-Force"
+      ],
+      "problemMatcher": [
+        "$gcc"
+      ]
+    },
+
+    { 
+      "label": "Clean Cache",
+      "type": "shell",
+      "windows": {
+        "command": "rmdir"
+      },
+      "args": [
+        "$env:PROJECT_DIR/.zephyr-cache",
+        "-Recurse", "-Force"
+      ],
+      "problemMatcher": [
+        "$gcc"
+      ]
+    },
+
+  ]
+} 
