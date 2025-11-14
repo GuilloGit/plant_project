@@ -87,53 +87,37 @@
 		reg = <0x40>;
 		status = "okay";
 	};
-	
-};
+	}; 
+// &i2c1 {
+// 	status = "okay";
+// 	/* If your board dts already defines pinctrl for I2C1, you can omit these.
+// 	   Typical Nucleo Arduino A5/A4 are PB8/PB9 for I2C1 (SCL/SDA): */
+// 	pinctrl-0 = <&i2c1_scl_pb8 &i2c1_sda_pb9>;
+// 	pinctrl-names = "default";
 
-
-
-
-// / {
-// 	aliases {
-// 		
-
-// 		/* UART and I2C buses */
-// 		gpsuart   = &usart1;
-// 		i2cbus    = &i2c1;
-
-// 		/* LEDs */
-// 		led-red    = &led_red;
-// 		led-green  = &led_green;
-// 		led-blue   = &led_blue;
-
-// 		// /* Optional: aliases for the three I2C sensors */
-// 		// proj_i2c_sens0  = &i2c_sens0;
-// 		// proj_i2c_sens1  = &i2c_sens1;
-// 		// proj_i2c_sens2  = &i2c_sens2;
-// 	    };
-//     /* A simple leds node with three children */
-//     leds {
-//         compatible = "gpio-leds";
-
-//         led_red: led_red {
-//             gpios = <&gpioc 2 GPIO_ACTIVE_LOW>;   /* PC2 */
-//             label = "RGB_RED";
-//         };
-
-//         led_green: led_green {
-//             gpios = <&gpioc 1 GPIO_ACTIVE_LOW>;   /* PC1 */
-//             label = "RGB_GREEN";
-//         };
-
-//         led_blue: led_blue {
-//             gpios = <&gpiob 12 GPIO_ACTIVE_LOW>;  /* PB12 */
-//             label = "RGB_BLUE";
-//         };
-//     };
-
-
-
+// 	/* Replace compatibles + reg addresses with your actual sensors */
+// 	mma8451:mma8451@1d {
+// 		compatible = "i2c-device";
+// 		label = "MMA8451"; // Podemos usar esta etiqueta en el código para obtener el dispositivo
+// 		reg = <0x1d>;
+// 		status = "okay";
+// 	};
+// 	//Color Sensor TCS34725
+// 	tcs34725: tcs34725@29 {
+// 		compatible = "i2c-device"; /* Esta linea la omito si pongo el label */
+// 		label = "TCS34725"; // Etiqueta para el sensor de color
+// 		reg = <0x29>;	// Direccion I2C del TCS34725
+// 		status = "okay";
+// 	};
+// 	// Sensor de temperatura y humedad Si7021
+// 	si7021: si7021@40 {
+// 		label = "SI7021"; 
+// 		compatible = "i2c-device"; //Dirección del sensor Si7021
+// 		reg = <0x40>;
+// 		status = "okay";
+// 	};
 // };
+
 
 // /* -------- UART: GPS on USART1 (PB6 TX, PB7 RX) -------- */
 // &usart1 {
@@ -145,34 +129,8 @@
 // 	   current-speed = <9600>; */
 // };
 
-// /* -------- I2C1: enable + attach three sensors -------- */
-// // &i2c1 {
-// // 	status = "okay";
-// // 	/* If your board dts already defines pinctrl for I2C1, you can omit these.
-// // 	   Typical Nucleo Arduino A5/A4 are PB8/PB9 for I2C1 (SCL/SDA): */
-// // 	/* pinctrl-0 = <&i2c1_scl_pb8 &i2c1_sda_pb9>;
-// // 	   pinctrl-names = "default"; */
 
-// // 	/* Replace compatibles + reg addresses with your actual sensors */
-// // 	i2c_sens0: sensor0@0x18 {
-// // 		/* Example: "ti,ina219", "bosch,bme280", etc. */
-// // 		compatible = "i2c-device";
-// // 		reg = <0x18>;
-// // 		status = "okay";
-// // 	};
 
-// // 	i2c_sens1: sensor1@0x40 {
-// // 		compatible = "i2c-device";
-// // 		reg = <0x40>;
-// // 		status = "okay";
-// // 	};
-
-// // 	i2c_sens2: sensor2@0x76 {
-// // 		compatible = "i2c-device";
-// // 		reg = <0x76>;
-// // 		status = "okay";
-// // 	};
-// // };
 
 /* -------- RGB LEDs -------- */
 /* Use the standard gpio-leds binding so you can get them with LED API */

@@ -27,13 +27,12 @@ void start_routine(void){
     soil_sensor_init();
      printk("Initializing Light Sensor (ADC)...\n");
      light_sensor_init();
-    // printk("Initializing Color Sensor (I2C)...\n");
-    // color_sensor_init();
+    printk("Initializing Color Sensor (I2C)...\n");
+    color_sensor_init();
     printk("Setting up LEDs\n");
     rgb_led_init();
     printk("\nAll sensors initialized!\n\n");
-    /* Data structs */
-    //   struct color_data col;
+
 }
 void test_routine(void){
     // Rutina principal de prueba
@@ -46,13 +45,20 @@ void test_routine(void){
     uint16_t light_raw = light_sensor_read();
     printk("Light RAW = %u\n", light_raw);
 
-    // /* ----- COLOR SENSOR (I2C) ----- */
-    // if (color_sensor_read(&col) == 0) {
-    //     printk("Color -> C:%u  R:%u  G:%u  B:%u\n",
-    //            col.clear, col.red, col.green, col.blue);
-    // } else {
-    //     printk("Color sensor read error\n");
-    // }
+    /* ----- COLOR SENSOR (I2C) ----- */
+    struct color_data col;
+    if (color_sensor_read(&col) == 0) {
+        printk("Color -> C:%u  R:%u  G:%u  B:%u\n",
+               col.clear, col.red, col.green, col.blue);
+        
+        enum dominant_color dom_color = color_sensor_get_dominant(&col);
+        const char *color_names[] = {"UNKNOWN", "RED", "GREEN", "BLUE"};
+        printk("Dominant Color: %s\n", color_names[dom_color]);
+    } else {
+        printk("Color sensor read error\n"
+                "Debug values: Color -> C:%u  R:%u  G:%u  B:%u\n",
+               col.clear, col.red, col.green, col.blue);
+    }
 
     // /* GPS prints appear automatically through ISR */
 
