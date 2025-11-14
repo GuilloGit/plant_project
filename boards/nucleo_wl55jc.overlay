@@ -16,11 +16,17 @@
 		led-red    = &led_red;
 		led-green  = &led_green;
 		led-blue   = &led_blue;
+		led0 = &blue_led_1;
 	    };
 
 	    /* A simple leds node with three children */
     leds {
         compatible = "gpio-leds";
+
+        blue_led_1: led_0 {
+            gpios = <&gpiob 15 GPIO_ACTIVE_HIGH>;
+            label = "User LED1";
+        };
 
         led_red: led_red {
             gpios = <&gpioc 2 GPIO_ACTIVE_LOW>;   /* PC2 */

@@ -4,25 +4,25 @@
 #include <stdint.h>
 
 /* ============================================================
- *  Datos de temperatura y humedad
+ *  Temperature and humidity data
  * ============================================================ */
 struct temp_hum_data {
-    float temperature_c;  /* Temperatura en grados Celsius */
-    float humidity_rh;    /* Humedad relativa en porcentaje */
+    float temperature_c;  /* Temperature in degrees Celsius */
+    float humidity_rh;    /* Relative humidity in percentage */
 };
 
 /*
- * Inicializa el sensor Si7021 en el bus I2C configurado
- * en el device tree (i2c2) y verifica que esté listo.
+ * Initializes the Si7021 sensor on the I2C bus configured
+ * in the device tree (i2c2) and verifies it's ready.
  */
 void temp_sensor_init(void);
 
 /*
- * Lee la temperatura y humedad del sensor Si7021.
+ * Reads temperature and humidity from Si7021 sensor.
  *
- * Retorno:
- *   0  -> OK, 'data' contiene valores válidos.
- *  -1  -> Error (I2C, sensor desconectado/apagado, timeout, etc.).
+ * Return:
+ *   0  -> OK, 'data' contains valid values.
+ *  -1  -> Error (I2C, sensor disconnected/off, timeout, etc.).
  */
 int temp_sensor_read(struct temp_hum_data *data);
 

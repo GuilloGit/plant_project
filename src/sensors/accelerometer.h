@@ -4,7 +4,7 @@
 #include <stdint.h>
 
 /* ============================================================
- *  Datos de aceleración en m/s²
+ *  Acceleration data in m/s²
  * ============================================================ */
 struct accel_data {
     float x_ms2;
@@ -13,17 +13,17 @@ struct accel_data {
 };
 
 /*
- * Inicializa el acelerómetro MMA8451 en el bus I2C configurado
- * en el device tree (i2c1) y lo deja midiendo en rango ±2g.
+ * Initializes the MMA8451 accelerometer on the I2C bus configured
+ * in the device tree (i2c2) and sets it to measure in ±2g range.
  */
 void accelerometer_init(void);
 
 /*
- * Lee la aceleración en los tres ejes X, Y, Z y la devuelve en m/s².
+ * Reads acceleration on the three axes X, Y, Z and returns it in m/s².
  *
- * Retorno:
- *   0  -> OK, 'data' contiene valores válidos.
- *  -1  -> Error (I2C, sensor desconectado/apagado, etc.).
+ * Return:
+ *   0  -> OK, 'data' contains valid values.
+ *  -1  -> Error (I2C, sensor disconnected/off, etc.).
  */
 int accelerometer_read(struct accel_data *data);
 

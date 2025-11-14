@@ -1,21 +1,21 @@
 /* ============================================================
- *  GPS.H - Driver para receptor GPS vía UART
+ *  GPS.H - Driver for GPS receiver via UART
  * ============================================================
- *  Descripción:
- *    Driver para receptor GPS que recibe sentencias NMEA a través
- *    de USART1. Utiliza interrupciones UART para capturar datos
- *    en segundo plano (non-blocking).
+ *  Description:
+ *    Driver for GPS receiver that receives NMEA sentences through
+ *    USART1. Uses UART interrupts to capture data in the
+ *    background (non-blocking).
  *
- *  Funcionamiento:
- *    - Los datos GPS se reciben automáticamente vía ISR
- *    - Se parsean las sentencias GPGGA/GNGGA
- *    - Los últimos datos válidos se almacenan en memoria
- *    - gps_read() devuelve instantáneamente los últimos datos
+ *  Operation:
+ *    - GPS data is received automatically via ISR
+ *    - GPGGA/GNGGA sentences are parsed
+ *    - Last valid data is stored in memory
+ *    - gps_read() instantly returns the last data
  *
- *  Uso:
- *    1. Llamar gps_init() al inicio del programa
- *    2. Llamar gps_read() periódicamente desde main loop
- *    3. Verificar retorno: 0 = OK, -1 = sin fix GPS
+ *  Usage:
+ *    1. Call gps_init() at program start
+ *    2. Call gps_read() periodically from main loop
+ *    3. Check return: 0 = OK, -1 = no GPS fix
  * ============================================================ */
 
 #ifndef GPS_H
@@ -25,59 +25,59 @@
 #include <stdbool.h>
 
 /* ============================================================
- *  Estructura de datos GPS
+ *  GPS data structure
  * ============================================================ */
 struct gps_data {
-    float latitude;       /* Latitud en grados decimales (+N, -S) */
-    float longitude;      /* Longitud en grados decimales (+E, -W) */
-    float altitude;       /* Altitud sobre el nivel del mar (metros) */
-    uint8_t satellites;   /* Número de satélites en uso */
-    char time_utc[16];    /* Hora UTC en formato HH:MM:SS */
-    bool has_fix;         /* true = fix GPS válido, false = buscando satélites */
+    float latitude;       /* Latitude in decimal degrees (+N, -S) */
+    float longitude;      /* Longitude in decimal degrees (+E, -W) */
+    float altitude;       /* Altitude above sea level (meters) */
+    uint8_t satellites;   /* Number of satellites in use */
+    char time_utc[16];    /* UTC time in HH:MM:SS format */
+    bool has_fix;         /* true = valid GPS fix, false = searching for satellites */
 };
 
 /* ============================================================
- *  Funciones públicas
+ *  Public functions
  * ============================================================ */
 
 /*
- * Inicializa el receptor GPS conectado a USART1.
+ * Initializes the GPS receiver connected to USART1.
  *
- * Configura:
+ * Configures:
  *   - Device tree node USART1
- *   - Interrupciones UART RX
- *   - Callback ISR para recepción de datos
+ *   - UART RX interrupts
+ *   - ISR callback for data reception
  *
- * Nota: Esta función NO bloquea. Las sentencias NMEA se
- *       procesan automáticamente en segundo plano.
+ * Note: This function does NOT block. NMEA sentences are
+ *       processed automatically in the background.
  */
 void gps_init(void);
 
 /*
- * Lee los últimos datos GPS capturados por la ISR.
+ * Reads the last GPS data captured by the ISR.
  *
- * Parámetros:
- *   data: Puntero a estructura donde se copiarán los datos GPS
+ * Parameters:
+ *   data: Pointer to structure where GPS data will be copied
  *
- * Retorno:
- *    0  -> OK, 'data' contiene coordenadas válidas (has_fix = true)
- *   -1  -> Error: sin fix GPS o sin datos recibidos
+ * Return:
+ *    0  -> OK, 'data' contains valid coordinates (has_fix = true)
+ *   -1  -> Error: no GPS fix or no data received
  *
- * Nota: Esta función NO bloquea. Retorna inmediatamente con los
- *       últimos datos disponibles. Si el GPS aún no tiene fix,
- *       retornará -1 hasta que capture señal de satélites.
+ * Note: This function does NOT block. Returns immediately with the
+ *       last available data. If GPS doesn't have fix yet,
+ *       it will return -1 until it captures satellite signal.
  */
 int gps_read(struct gps_data *data);
 
 /*
- * Procesa una línea NMEA (uso interno, llamada desde ISR).
+ * Processes an NMEA line (internal use, called from ISR).
  *
- * Parsea sentencias GPGGA/GNGGA y extrae:
- *   - Coordenadas (lat/lon)
- *   - Altitud
- *   - Número de satélites
- *   - Hora UTC
- *   - Estado del fix
+ * Parses GPGGA/GNGGA sentences and extracts:
+ *   - Coordinates (lat/lon)
+ *   - Altitude
+ *   - Number of satellites
+ *   - UTC time
+ *   - Fix status
  */
 void gps_process_line(char *line);
 

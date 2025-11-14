@@ -13,16 +13,18 @@
 #include "sensors/rgb_led.h"    
 
 
-// Inicializacion de la variable de estado del sistema
-volatile system_state_t current_state = NORMAL_STATE; // it has to be volatile because it's changed in an ISR
+// System state variable initialization
+volatile system_state_t current_state = NORMAL_STATE; // volatile because it's changed in an ISR
 
+// Blue LED1 device tree spec
+static const struct gpio_dt_spec blue_led1 = GPIO_DT_SPEC_GET(DT_ALIAS(led0), gpios);
 
-// Variables globales 
+// Global variables
     struct accel_data accel;
     int ret;
-// Rutinas
+// Routines
 
-// Rutina de inicio del programa
+// Program startup routine
 void start_routine(void){
     /* ---------- INITIALIZATION ---------- */
 
@@ -38,6 +40,15 @@ void start_routine(void){
     temp_sensor_init();
     printk("Setting up LEDs\n");
     rgb_led_init();
+    
+    // Initialize blue LED1
+    if (device_is_ready(blue_led1.port)) {
+        gpio_pin_configure_dt(&blue_led1, GPIO_OUTPUT_INACTIVE);
+        printk("Blue LED1 initialized\n");
+    } else {
+        printk("Blue LED1: ERROR (GPIO not ready)\n");
+    }
+    
     printk("Initializing MMA8451 Accelerometer...\n");
     accelerometer_init();
     printk("\nAll sensors initialized!\n\n");
@@ -45,7 +56,10 @@ void start_routine(void){
 
 }
 void diag_routine(void){
-    // Rutina principal de prueba
+    // Main diagnostic routine
+
+    // Turn on blue LED1
+    gpio_pin_set_dt(&blue_led1, 1);
 
     /* ----- SOIL MOISTURE ----- */
     uint16_t soil_raw = soil_sensor_read();
@@ -120,10 +134,10 @@ void diag_routine(void){
     ret = accelerometer_read(&accel);
 
     if (ret == 0) {
-        /* Formato: 
-            * ACCELEROMETERS: X_axis: -0.23 m/s², Y_axis: 1.20 m/s², Z_axis: 9.88 m/s²
-            * Cast to double to silence -Wdouble-promotion warning
-            */
+        /* Format:
+         * ACCELEROMETERS: X_axis: -0.23 m/s², Y_axis: 1.20 m/s², Z_axis: 9.88 m/s²
+         * Cast to double to silence -Wdouble-promotion warning
+         */
         printk("ACCELEROMETERS: X_axis: %.2f m/s², Y_axis: %.2f m/s², Z_axis: %.2f m/s²\n",
                 (double)accel.x_ms2, (double)accel.y_ms2, (double)accel.z_ms2);
     } else {

@@ -4,12 +4,12 @@
 #include <stdint.h>
 
 /* ============================================================
- *  Datos crudos del sensor TCS34725
+ *  Raw data from TCS34725 sensor
  *  ------------------------------------------------------------
- *  clear  → componente de luz "blanca"/total
- *  red    → componente roja
- *  green  → componente verde
- *  blue   → componente azul
+ *  clear  → "white"/total light component
+ *  red    → red component
+ *  green  → green component
+ *  blue   → blue component
  * ============================================================ */
 struct color_data {
     uint16_t clear;
@@ -19,7 +19,7 @@ struct color_data {
 };
 
 /* ============================================================
- *  Colores dominantes detectados
+ *  Detected dominant colors
  * ============================================================ */
 enum dominant_color {
     COLOR_UNKNOWN = 0,
@@ -28,22 +28,22 @@ enum dominant_color {
     COLOR_BLUE,
 };
 
-/* Inicializa el sensor de color (I2C + configuración del TCS34725). */
+/* Initializes the color sensor (I2C + TCS34725 configuration). */
 void color_sensor_init(void);
 
 /* 
- * Lee los valores clear, red, green y blue del TCS34725.
+ * Reads clear, red, green and blue values from TCS34725.
  * 
- * Retorno:
- *   0  → OK, 'data' contiene valores válidos.
- *  -1  → Error (I2C, sensor desconectado, etc.).
+ * Return:
+ *   0  → OK, 'data' contains valid values.
+ *  -1  → Error (I2C, sensor disconnected, etc.).
  */
 int color_sensor_read(struct color_data *data);
 
 /*
- * Devuelve el color dominante estimado a partir de los valores
- * medidos. Si la luz es muy baja o no hay un dominante claro,
- * devuelve COLOR_UNKNOWN.
+ * Returns the estimated dominant color based on measured values.
+ * If light is very low or there's no clear dominant color,
+ * returns COLOR_UNKNOWN.
  */
 enum dominant_color color_sensor_get_dominant(const struct color_data *data);
 
