@@ -54,8 +54,8 @@
 	/* Use the WL pinctrl labels for PB6/PB7 alt functions */
 	pinctrl-0 = <&usart1_tx_pb6 &usart1_rx_pb7>;
 	pinctrl-names = "default";
-	/* Optionally choose for console/stdio if you want:
-	   current-speed = <9600>; */
+	/* GPS typical baudrate */
+	current-speed = <9600>;
 };
 
 /* -------- I2C2: enable + attach three sensors (PA12=SCL, PA11=SDA) -------- */

@@ -81,10 +81,13 @@ void diag_routine(void){
 
     /* ----- GPS ----- */
     struct gps_data gps;
-    if (gps_read(&gps) == 0) {
+    ret = gps_read(&gps);
+    if (ret == 0) {
         printk("GPS -> Lat: %.5f, Lon: %.5f, Alt: %.1fm, Sats: %u, Time: %s UTC\n",
                (double)gps.latitude, (double)gps.longitude, (double)gps.altitude,
                gps.satellites, gps.time_utc);
+    } else if (ret == -2) {
+        printk("GPS: ERROR (UART disconnected or no data)\n");
     } else {
         printk("GPS: No fix (waiting for satellites...)\n");
     }

@@ -54,6 +54,7 @@ static uint8_t line_pos = 0;
 static volatile bool gga_processed = false;   /* Ya se procesó GPGGA en este ciclo */
 static volatile bool got_gpgga = false;       /* Se recibió al menos un GPGGA válido */
 static bool last_error = false;               /* Flag para evitar spam de errores */
+static volatile int64_t last_uart_rx_time = 0; /* Timestamp de última recepción UART */
 
 /* Estructura con los últimos datos GPS válidos recibidos */
 static struct gps_data last_gps_data = {
@@ -223,6 +224,7 @@ static void uart_isr(const struct device *dev, void *user_data)
     while (uart_irq_update(dev) && uart_irq_rx_ready(dev)) {
 
         if (uart_fifo_read(dev, &c, 1) == 1) {
+            /* NO actualizar timestamp aquí - solo al recibir sentencia NMEA válida */
 
             /* Detectar inicio de sentencia NMEA */
             if (c == '$')
@@ -241,6 +243,9 @@ static void uart_isr(const struct device *dev, void *user_data)
                        (strstr(nmea_line, "$GPGGA") ||
                         strstr(nmea_line, "$GNGGA")))
                     {
+                        /* Actualizar timestamp INMEDIATAMENTE al detectar GPGGA */
+                        last_uart_rx_time = k_uptime_get();
+                        
                         gps_process_line(nmea_line);
                         gga_processed = true;  /* Evitar reprocesar */
                         got_gpgga = true;      /* Marcar que hay datos */
@@ -280,12 +285,20 @@ void gps_init(void)
         return;
     }
 
+    printk("GPS: UART device ready at %p\n", uart_dev);
+
     /* Configurar ISR y habilitar interrupciones RX */
     uart_irq_callback_set(uart_dev, uart_isr);
+    printk("GPS: ISR callback set\n");
+    
     uart_irq_rx_enable(uart_dev);
+    printk("GPS: RX interrupts enabled\n");
+
+    /* Inicializar timestamp en 0 para detectar si nunca se reciben datos */
+    last_uart_rx_time = 0;
 
     last_error = false;
-    printk("GPS UART Ready\n");
+    printk("GPS UART Ready - waiting for NMEA data...\n");
 }
 
 /* ============================================================
@@ -327,13 +340,29 @@ int gps_read(struct gps_data *data)
         return -1;
     }
 
+    /* CRÍTICO: Resetear flag ANTES de cualquier verificación
+     * Esto permite que la ISR procese la próxima GPGGA que llegue */
+    gga_processed = false;
+    
+    /* Verificar si UART nunca ha recibido datos o lleva >5s sin recibirlos */
+    int64_t current_time = k_uptime_get();
+    bool never_received = (last_uart_rx_time == 0 && current_time > 5000);
+    bool timeout = (last_uart_rx_time > 0 && (current_time - last_uart_rx_time) > 5000);
+    
+    if (never_received || timeout) {
+        /* Resetear flags para permitir reconexión */
+        got_gpgga = false;
+        last_gps_data.has_fix = false;
+        /* No imprimir aquí - se imprime en main.c */
+        last_error = true;
+        return -2;  /* Código especial para UART desconectado */
+    }
+
     /* Verificar que hay datos GPS válidos con fix */
     if (!got_gpgga || !last_gps_data.has_fix) {
-        if (!last_error) {
-            printk("GPS: ERROR (no fix or no data)\n");
-        }
+        /* No imprimir aquí - se imprime en main.c */
         last_error = true;
-        return -1;
+        return -1;  /* GPS conectado pero sin fix */
     }
 
     /* Copiar última estructura GPS válida (atómica) */
