@@ -26,8 +26,8 @@ volatile system_state_t current_state = NORMAL_STATE; // it has to be volatile b
 void start_routine(void){
     /* ---------- INITIALIZATION ---------- */
 
-    // printk("Initializing GPS...\n");
-    // gps_init();
+    printk("Initializing GPS...\n");
+    gps_init();
     printk("Initializing Soil Moisture Sensor...\n");
     soil_sensor_init();
      printk("Initializing Light Sensor (ADC)...\n");
@@ -38,13 +38,13 @@ void start_routine(void){
     temp_sensor_init();
     printk("Setting up LEDs\n");
     rgb_led_init();
-    printk("Inicializando acelerómetro MMA8451...\n");
+    printk("Initializing MMA8451 Accelerometer...\n");
     accelerometer_init();
     printk("\nAll sensors initialized!\n\n");
     printk("-----------------------------------------\n");
 
 }
-void test_routine(void){
+void diag_routine(void){
     // Rutina principal de prueba
 
     /* ----- SOIL MOISTURE ----- */
@@ -79,7 +79,15 @@ void test_routine(void){
         printk("Temperature sensor read error\n");
     }
 
-    // /* GPS prints appear automatically through ISR */
+    /* ----- GPS ----- */
+    struct gps_data gps;
+    if (gps_read(&gps) == 0) {
+        printk("GPS -> Lat: %.5f, Lon: %.5f, Alt: %.1fm, Sats: %u, Time: %s UTC\n",
+               (double)gps.latitude, (double)gps.longitude, (double)gps.altitude,
+               gps.satellites, gps.time_utc);
+    } else {
+        printk("GPS: No fix (waiting for satellites...)\n");
+    }
 
 
     /* ----- ACCELEROMETER TEST ----- */
@@ -94,7 +102,7 @@ void test_routine(void){
         printk("ACCELEROMETERS: X_axis: %.2f m/s², Y_axis: %.2f m/s², Z_axis: %.2f m/s²\n",
                 (double)accel.x_ms2, (double)accel.y_ms2, (double)accel.z_ms2);
     } else {
-        printk("ACCELEROMETERS: ERROR (no se pudo leer el sensor)\n");
+        printk("ACCELEROMETERS: ERROR (could not read the sensor)\n");
     }
     /** ----- RGB LED TEST ----- */
     printk("Testing RGB LED...\n");
@@ -120,7 +128,7 @@ void main(void)
     /* ---------- MAIN LOOP ---------- */
     while (1)
     {
-        test_routine();
+        diag_routine();
 
         k_sleep(K_SECONDS(2));
     }
