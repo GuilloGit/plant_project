@@ -22,7 +22,85 @@ static const struct gpio_dt_spec blue_led1 = GPIO_DT_SPEC_GET(DT_ALIAS(led0), gp
 // Global variables
     struct accel_data accel;
     int ret;
-// Routines
+
+// MODES 
+/* =======================================================
+ *                  MODE
+ * ======================================================= */
+enum system_mode {
+    MODE_TEST = 0,
+    MODE_NORMAL = 1
+};
+
+volatile enum system_mode current_mode = MODE_TEST;
+
+/* =======================================================
+ *                  LED USER (ledGreen)
+ * ======================================================= */
+#define LED_NODE DT_ALIAS(led1)
+BUILD_ASSERT(DT_NODE_HAS_STATUS(LED_NODE, okay), "Alias led0 missing!");
+
+static const struct gpio_dt_spec green_led2 =
+    GPIO_DT_SPEC_GET(LED_NODE, gpios);
+
+/* =======================================================
+ *                  BOTTON USER (sw0)
+ * ======================================================= */
+#define BUTTON_NODE DT_ALIAS(sw0)
+BUILD_ASSERT(DT_NODE_HAS_STATUS(BUTTON_NODE, okay), "Alias sw0 missing!");
+
+static const struct gpio_dt_spec button =
+    GPIO_DT_SPEC_GET(BUTTON_NODE, gpios);
+
+static struct gpio_callback button_cb;
+
+/* =======================================================
+ *        FUNCTION CHANGE MODE
+ * ======================================================= */
+void set_mode(enum system_mode new_mode)
+{
+    current_mode = new_mode;
+
+    switch (new_mode) {
+    case MODE_TEST:
+        // Turn on blue LED1
+        gpio_pin_set_dt(&blue_led1, 1); // Turn ON blue LED1
+        gpio_pin_set_dt(&green_led2, 0); // Turn OFF green LED
+        printk("\n=== TEST MODE ACTIVATED ===\n");
+        break;
+
+    case MODE_NORMAL:
+        gpio_pin_set_dt(&green_led2, 1);     // Turn ON green LED
+         gpio_pin_set_dt(&blue_led1, 0);   // Turn OFF blue LED
+        printk("\n=== NORMAL MODE ACTIVATED ===\n");
+        break;
+    }
+}
+
+/* =======================================================
+ *         ISR BOTTON → CHANGE MODE
+ * ======================================================= */
+static void button_isr(const struct device *dev,
+                       struct gpio_callback *cb,
+                       uint32_t pins)
+{
+    bool pressed = gpio_pin_get_dt(&button);
+
+    if (!pressed) { // Button released (active low)
+        if (current_mode == MODE_TEST)
+            set_mode(MODE_NORMAL);
+        else
+            set_mode(MODE_TEST);
+    }
+}
+
+
+
+
+    // Routines
+
+
+
 
 // Program startup routine
 void start_routine(void){
@@ -48,6 +126,13 @@ void start_routine(void){
     } else {
         printk("Blue LED1: ERROR (GPIO not ready)\n");
     }
+        // Initialize green LED2
+    if (device_is_ready(green_led2.port)) {
+        gpio_pin_configure_dt(&green_led2, GPIO_OUTPUT_INACTIVE);
+        printk("Green LED2 initialized\n");
+    } else {
+        printk("Green LED2: ERROR (GPIO not ready)\n");
+    }
     
     printk("Initializing MMA8451 Accelerometer...\n");
     accelerometer_init();
@@ -59,7 +144,7 @@ void diag_routine(void){
     // Main diagnostic routine
 
     // Turn on blue LED1
-    gpio_pin_set_dt(&blue_led1, 1);
+   // gpio_pin_set_dt(&blue_led1, 1);
 
     /* ----- SOIL MOISTURE ----- */
     uint16_t soil_raw = soil_sensor_read();
@@ -164,11 +249,26 @@ void main(void)
     printk("Smart Plant Project - Main System   \n");
     printk("=========================================\n\n");
     start_routine();
+    gpio_pin_configure_dt(&button, GPIO_INPUT);
+    gpio_pin_interrupt_configure_dt(&button, GPIO_INT_EDGE_BOTH);
+
+    gpio_init_callback(&button_cb, button_isr, BIT(button.pin));
+    gpio_add_callback(button.port, &button_cb);
+
+    /* Activate TEST MODE inicial */
+    set_mode(MODE_TEST);
     /* ---------- MAIN LOOP ---------- */
     while (1)
     {
-        diag_routine();
+        if (current_mode == MODE_TEST){
+            diag_routine();
+            k_sleep(K_SECONDS(2));
+        }
+        else if (current_mode == MODE_NORMAL){
+            diag_routine();
+            //normal_routine();
+            k_sleep(K_SECONDS(30));
+        }
 
-        k_sleep(K_SECONDS(2));
     }
 }

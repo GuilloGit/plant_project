@@ -17,6 +17,7 @@
 		led-green  = &led_green;
 		led-blue   = &led_blue;
 		led0 = &blue_led_1;
+		led1 = &green_led_2;
 	    };
 
 	    /* A simple leds node with three children */
