@@ -6,6 +6,7 @@
 #include "sensors/soil_sensor.h"
 #include "sensors/light_sensor.h"
 #include "sensors/color_sensor.h"
+#include "sensors/temp_sensor.h"
 #include "sensors/gps.h"
 #include "main.h"
 #include "sensors/accelerometer.h"
@@ -15,6 +16,10 @@
 // Inicializacion de la variable de estado del sistema
 volatile system_state_t current_state = NORMAL_STATE; // it has to be volatile because it's changed in an ISR
 
+
+// Variables globales 
+    struct accel_data accel;
+    int ret;
 // Rutinas
 
 // Rutina de inicio del programa
@@ -29,9 +34,14 @@ void start_routine(void){
      light_sensor_init();
     printk("Initializing Color Sensor (I2C)...\n");
     color_sensor_init();
+    printk("Initializing Temperature & Humidity Sensor (Si7021)...\n");
+    temp_sensor_init();
     printk("Setting up LEDs\n");
     rgb_led_init();
+    printk("Inicializando acelerómetro MMA8451...\n");
+    accelerometer_init();
     printk("\nAll sensors initialized!\n\n");
+    printk("-----------------------------------------\n");
 
 }
 void test_routine(void){
@@ -60,8 +70,32 @@ void test_routine(void){
                col.clear, col.red, col.green, col.blue);
     }
 
+    /* ----- TEMPERATURE & HUMIDITY SENSOR (Si7021) ----- */
+    struct temp_hum_data temp_hum;
+    if (temp_sensor_read(&temp_hum) == 0) {
+        printk("Temperature: %.1f°C, Humidity: %.1f%%RH\n",
+               (double)temp_hum.temperature_c, (double)temp_hum.humidity_rh);
+    } else {
+        printk("Temperature sensor read error\n");
+    }
+
     // /* GPS prints appear automatically through ISR */
 
+
+    /* ----- ACCELEROMETER TEST ----- */
+    printk("Testing Accelerometer...\n");
+    ret = accelerometer_read(&accel);
+
+    if (ret == 0) {
+        /* Formato: 
+            * ACCELEROMETERS: X_axis: -0.23 m/s², Y_axis: 1.20 m/s², Z_axis: 9.88 m/s²
+            * Cast to double to silence -Wdouble-promotion warning
+            */
+        printk("ACCELEROMETERS: X_axis: %.2f m/s², Y_axis: %.2f m/s², Z_axis: %.2f m/s²\n",
+                (double)accel.x_ms2, (double)accel.y_ms2, (double)accel.z_ms2);
+    } else {
+        printk("ACCELEROMETERS: ERROR (no se pudo leer el sensor)\n");
+    }
     /** ----- RGB LED TEST ----- */
     printk("Testing RGB LED...\n");
     set_led_color(1, 0, 0); // Red
@@ -70,7 +104,6 @@ void test_routine(void){
     k_sleep(K_MSEC(500));
     set_led_color(0, 0, 1); // Blue
     k_sleep(K_MSEC(500));
-
     
     printk("-----------------------------------------\n");
 
