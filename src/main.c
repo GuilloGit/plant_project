@@ -49,11 +49,13 @@ void diag_routine(void){
 
     /* ----- SOIL MOISTURE ----- */
     uint16_t soil_raw = soil_sensor_read();
-    printk("Soil moisture RAW = %u\n", soil_raw);
+    float soil_percent = soil_raw / 10.0f;  // Convert permille to percentage
+    printk("Soil moisture = %.1f%%\n", (double)soil_percent);
 
     /* ----- LIGHT SENSOR ----- */
     uint16_t light_raw = light_sensor_read();
-    printk("Light RAW = %u\n", light_raw);
+    float light_percent = (1000 - light_raw) / 10.0f;  // Invert and convert to percentage
+    printk("Light = %.1f%%\n", (double)light_percent);
 
     /* ----- COLOR SENSOR (I2C) ----- */
     struct color_data col;
@@ -64,10 +66,29 @@ void diag_routine(void){
         enum dominant_color dom_color = color_sensor_get_dominant(&col);
         const char *color_names[] = {"UNKNOWN", "RED", "GREEN", "BLUE"};
         printk("Dominant Color: %s\n", color_names[dom_color]);
+        
+        // Set RGB LED according to dominant color
+        switch (dom_color) {
+            case COLOR_RED:
+                set_led_color(1, 0, 0); // Red
+                break;
+            case COLOR_GREEN:
+                set_led_color(0, 1, 0); // Green
+                break;
+            case COLOR_BLUE:
+                set_led_color(0, 0, 1); // Blue
+                break;
+            case COLOR_UNKNOWN:
+            default:
+                set_led_color(0, 0, 0); // Off
+                break;
+        }
+        
     } else {
         printk("Color sensor read error\n"
                 "Debug values: Color -> C:%u  R:%u  G:%u  B:%u\n",
                col.clear, col.red, col.green, col.blue);
+        set_led_color(0, 0, 0); // Off on error
     }
 
     /* ----- TEMPERATURE & HUMIDITY SENSOR (Si7021) ----- */
@@ -89,6 +110,7 @@ void diag_routine(void){
     } else if (ret == -2) {
         printk("GPS: ERROR (UART disconnected or no data)\n");
     } else {
+        printk("GPS: Time: %s UTC\n", gps.time_utc);
         printk("GPS: No fix (waiting for satellites...)\n");
     }
 
@@ -107,14 +129,14 @@ void diag_routine(void){
     } else {
         printk("ACCELEROMETERS: ERROR (could not read the sensor)\n");
     }
-    /** ----- RGB LED TEST ----- */
-    printk("Testing RGB LED...\n");
-    set_led_color(1, 0, 0); // Red
-    k_sleep(K_MSEC(500));
-    set_led_color(0, 1, 0); // Green
-    k_sleep(K_MSEC(500));
-    set_led_color(0, 0, 1); // Blue
-    k_sleep(K_MSEC(500));
+    // /** ----- RGB LED TEST ----- */
+    // printk("Testing RGB LED...\n");
+    // set_led_color(1, 0, 0); // Red
+    // k_sleep(K_MSEC(500));
+    // set_led_color(0, 1, 0); // Green
+    // k_sleep(K_MSEC(500));
+    // set_led_color(0, 0, 1); // Blue
+    // k_sleep(K_MSEC(500));
     
     printk("-----------------------------------------\n");
 

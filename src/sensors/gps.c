@@ -165,6 +165,15 @@ void gps_process_line(char *line)
     char *sats  = fields[7];  /* Número de satélites */
     char *alt   = fields[9];  /* Altitud (metros) */
 
+    /* Formatear hora UTC (de "123456" a "12:34:56") - SIEMPRE, incluso sin fix */
+    if (utc && strlen(utc) >= 6) {
+        snprintf(last_gps_data.time_utc, sizeof(last_gps_data.time_utc),
+                 "%c%c:%c%c:%c%c",
+                 utc[0], utc[1], utc[2], utc[3], utc[4], utc[5]);
+    } else {
+        snprintf(last_gps_data.time_utc, sizeof(last_gps_data.time_utc), "--:--:--");
+    }
+
     /* Verificar si hay fix GPS válido */
     if (!fixq || atoi(fixq) == 0) {
         last_gps_data.has_fix = false;
@@ -179,15 +188,6 @@ void gps_process_line(char *line)
     last_gps_data.altitude = alt ? atof(alt) : 0.0f;
     last_gps_data.satellites = sats ? (uint8_t)atoi(sats) : 0;
     last_gps_data.has_fix = true;
-
-    /* Formatear hora UTC (de "123456" a "12:34:56") */
-    if (utc && strlen(utc) >= 6) {
-        snprintf(last_gps_data.time_utc, sizeof(last_gps_data.time_utc),
-                 "%c%c:%c%c:%c%c",
-                 utc[0], utc[1], utc[2], utc[3], utc[4], utc[5]);
-    } else {
-        snprintf(last_gps_data.time_utc, sizeof(last_gps_data.time_utc), "--:--:--");
-    }
 
     /* Comentado para evitar bloqueo en contexto ISR.
      * Los datos GPS se imprimen desde el main thread usando gps_read().
@@ -353,14 +353,14 @@ int gps_read(struct gps_data *data)
         /* Resetear flags para permitir reconexión */
         got_gpgga = false;
         last_gps_data.has_fix = false;
-        /* No imprimir aquí - se imprime en main.c */
         last_error = true;
         return -2;  /* Código especial para UART desconectado */
     }
 
     /* Verificar que hay datos GPS válidos con fix */
     if (!got_gpgga || !last_gps_data.has_fix) {
-        /* No imprimir aquí - se imprime en main.c */
+        /* Copiar estructura incluyendo timestamp, aunque no haya fix */
+        *data = last_gps_data;
         last_error = true;
         return -1;  /* GPS conectado pero sin fix */
     }
