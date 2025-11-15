@@ -96,11 +96,36 @@ static void button_isr(const struct device *dev,
 
 
 
+/* =======================================================
+ *                    THREADS
+ * ======================================================= */
 
-    // Routines
+void sensors_thread(void *a, void *b, void *c)
+{
+    while (1)
+    {
+        if (current_mode == MODE_TEST){
+            diag_routine();
+            k_sleep(K_SECONDS(2));
+        }
+        else if (current_mode == MODE_NORMAL){
+            diag_routine();
+            //normal_routine();
+            k_sleep(K_SECONDS(30));
+        }
+
+    }
+}   
+
+
+// Thread stack and control block (declared but not started yet)
+#define SENSORS_STACK_SIZE 1024
+K_THREAD_STACK_DEFINE(sensors_stack, SENSORS_STACK_SIZE);
+static struct k_thread sensors_thread_data;
 
 
 
+// Routines
 
 // Program startup routine
 void start_routine(void){
@@ -257,18 +282,28 @@ void main(void)
 
     /* Activate TEST MODE inicial */
     set_mode(MODE_TEST);
+    
+    /* Create and start sensors thread AFTER initialization */
+    k_thread_create(&sensors_thread_data, sensors_stack,
+                    K_THREAD_STACK_SIZEOF(sensors_stack),
+                    sensors_thread,
+                    NULL, NULL, NULL,
+                    5, 0, K_NO_WAIT);
+    k_thread_name_set(&sensors_thread_data, "sensors_thread");
+    printk("Sensors thread started\n");
+    
     /* ---------- MAIN LOOP ---------- */
-    while (1)
-    {
-        if (current_mode == MODE_TEST){
-            diag_routine();
-            k_sleep(K_SECONDS(2));
-        }
-        else if (current_mode == MODE_NORMAL){
-            diag_routine();
-            //normal_routine();
-            k_sleep(K_SECONDS(30));
-        }
+    // while (1)
+    // {
+    //     if (current_mode == MODE_TEST){
+    //         diag_routine();
+    //         k_sleep(K_SECONDS(2));
+    //     }
+    //     else if (current_mode == MODE_NORMAL){
+    //         diag_routine();
+    //         //normal_routine();
+    //         k_sleep(K_SECONDS(30));
+    //     }
 
-    }
+    // }
 }
