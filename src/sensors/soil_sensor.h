@@ -4,6 +4,6 @@
 #include <stdint.h>
 
 void soil_sensor_init(void);
-uint16_t soil_sensor_read(void);
+int soil_sensor_read(void);
 
 #endif

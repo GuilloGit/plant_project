@@ -12,6 +12,7 @@
   },
   "files.associations": {
     "kernel.h": "c",
-    "gpio.h": "c"
+    "gpio.h": "c",
+    "adc.h": "c"
   },
 }
